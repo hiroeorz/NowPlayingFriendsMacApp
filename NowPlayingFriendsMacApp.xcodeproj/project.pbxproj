@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		54305E661388C21500873C0B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54305E651388C21500873C0B /* Cocoa.framework */; };
+		54305E701388C21500873C0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54305E6E1388C21500873C0B /* InfoPlist.strings */; };
+		54305E731388C21500873C0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54305E721388C21500873C0B /* main.m */; };
+		54305E761388C21500873C0B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 54305E741388C21500873C0B /* Credits.rtf */; };
+		54305E791388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54305E781388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m */; };
+		54305E7C1388C21600873C0B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54305E7A1388C21600873C0B /* MainMenu.xib */; };
+		54305E831388C21600873C0B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54305E651388C21500873C0B /* Cocoa.framework */; };
+		54305E8B1388C21600873C0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54305E891388C21600873C0B /* InfoPlist.strings */; };
+		54305E8E1388C21600873C0B /* NowPlayingFriendsMacAppTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 54305E8D1388C21600873C0B /* NowPlayingFriendsMacAppTests.h */; };
+		54305E901388C21600873C0B /* NowPlayingFriendsMacAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54305E8F1388C21600873C0B /* NowPlayingFriendsMacAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		54305E841388C21600873C0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54305E581388C21500873C0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 54305E601388C21500873C0B;
+			remoteInfo = NowPlayingFriendsMacApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		54305E611388C21500873C0B /* NowPlayingFriendsMacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NowPlayingFriendsMacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54305E651388C21500873C0B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		54305E681388C21500873C0B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		54305E691388C21500873C0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		54305E6A1388C21500873C0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		54305E6D1388C21500873C0B /* NowPlayingFriendsMacApp-Info.plist */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacApp-Info.plist"; sourceTree = "<group>"; };
+		54305E6F1388C21500873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54305E711388C21500873C0B /* NowPlayingFriendsMacApp-Prefix.pch */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacApp-Prefix.pch"; sourceTree = "<group>"; };
+		54305E721388C21500873C0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		54305E751388C21500873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		54305E771388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.h */ = {isa = PBXFileReference; path = NowPlayingFriendsMacAppAppDelegate.h; sourceTree = "<group>"; };
+		54305E781388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowPlayingFriendsMacAppAppDelegate.m; sourceTree = "<group>"; };
+		54305E7B1388C21600873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		54305E821388C21600873C0B /* NowPlayingFriendsMacAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NowPlayingFriendsMacAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54305E881388C21600873C0B /* NowPlayingFriendsMacAppTests-Info.plist */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacAppTests-Info.plist"; sourceTree = "<group>"; };
+		54305E8A1388C21600873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		54305E8C1388C21600873C0B /* NowPlayingFriendsMacAppTests-Prefix.pch */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacAppTests-Prefix.pch"; sourceTree = "<group>"; };
+		54305E8D1388C21600873C0B /* NowPlayingFriendsMacAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NowPlayingFriendsMacAppTests.h; sourceTree = "<group>"; };
+		54305E8F1388C21600873C0B /* NowPlayingFriendsMacAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowPlayingFriendsMacAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		54305E5E1388C21500873C0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54305E661388C21500873C0B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54305E7E1388C21600873C0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54305E831388C21600873C0B /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54305E561388C21500873C0B = {
+			isa = PBXGroup;
+			children = (
+				54305E6B1388C21500873C0B /* NowPlayingFriendsMacApp */,
+				54305E861388C21600873C0B /* NowPlayingFriendsMacAppTests */,
+				54305E641388C21500873C0B /* Frameworks */,
+				54305E621388C21500873C0B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		54305E621388C21500873C0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54305E611388C21500873C0B /* NowPlayingFriendsMacApp.app */,
+				54305E821388C21600873C0B /* NowPlayingFriendsMacAppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54305E641388C21500873C0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54305E651388C21500873C0B /* Cocoa.framework */,
+				54305E671388C21500873C0B /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		54305E671388C21500873C0B /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54305E681388C21500873C0B /* AppKit.framework */,
+				54305E691388C21500873C0B /* CoreData.framework */,
+				54305E6A1388C21500873C0B /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		54305E6B1388C21500873C0B /* NowPlayingFriendsMacApp */ = {
+			isa = PBXGroup;
+			children = (
+				54305E771388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.h */,
+				54305E781388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m */,
+				54305E7A1388C21600873C0B /* MainMenu.xib */,
+				54305E6C1388C21500873C0B /* Supporting Files */,
+			);
+			path = NowPlayingFriendsMacApp;
+			sourceTree = "<group>";
+		};
+		54305E6C1388C21500873C0B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54305E6D1388C21500873C0B /* NowPlayingFriendsMacApp-Info.plist */,
+				54305E6E1388C21500873C0B /* InfoPlist.strings */,
+				54305E711388C21500873C0B /* NowPlayingFriendsMacApp-Prefix.pch */,
+				54305E721388C21500873C0B /* main.m */,
+				54305E741388C21500873C0B /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54305E861388C21600873C0B /* NowPlayingFriendsMacAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				54305E8D1388C21600873C0B /* NowPlayingFriendsMacAppTests.h */,
+				54305E8F1388C21600873C0B /* NowPlayingFriendsMacAppTests.m */,
+				54305E871388C21600873C0B /* Supporting Files */,
+			);
+			path = NowPlayingFriendsMacAppTests;
+			sourceTree = "<group>";
+		};
+		54305E871388C21600873C0B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				54305E881388C21600873C0B /* NowPlayingFriendsMacAppTests-Info.plist */,
+				54305E891388C21600873C0B /* InfoPlist.strings */,
+				54305E8C1388C21600873C0B /* NowPlayingFriendsMacAppTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		54305E601388C21500873C0B /* NowPlayingFriendsMacApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54305E931388C21600873C0B /* Build configuration list for PBXNativeTarget "NowPlayingFriendsMacApp" */;
+			buildPhases = (
+				54305E5D1388C21500873C0B /* Sources */,
+				54305E5E1388C21500873C0B /* Frameworks */,
+				54305E5F1388C21500873C0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NowPlayingFriendsMacApp;
+			productName = NowPlayingFriendsMacApp;
+			productReference = 54305E611388C21500873C0B /* NowPlayingFriendsMacApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		54305E811388C21600873C0B /* NowPlayingFriendsMacAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54305E961388C21600873C0B /* Build configuration list for PBXNativeTarget "NowPlayingFriendsMacAppTests" */;
+			buildPhases = (
+				54305E7D1388C21600873C0B /* Sources */,
+				54305E7E1388C21600873C0B /* Frameworks */,
+				54305E7F1388C21600873C0B /* Resources */,
+				54305E801388C21600873C0B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54305E851388C21600873C0B /* PBXTargetDependency */,
+			);
+			name = NowPlayingFriendsMacAppTests;
+			productName = NowPlayingFriendsMacAppTests;
+			productReference = 54305E821388C21600873C0B /* NowPlayingFriendsMacAppTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54305E581388C21500873C0B /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 54305E5B1388C21500873C0B /* Build configuration list for PBXProject "NowPlayingFriendsMacApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 54305E561388C21500873C0B;
+			productRefGroup = 54305E621388C21500873C0B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54305E601388C21500873C0B /* NowPlayingFriendsMacApp */,
+				54305E811388C21600873C0B /* NowPlayingFriendsMacAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		54305E5F1388C21500873C0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54305E701388C21500873C0B /* InfoPlist.strings in Resources */,
+				54305E761388C21500873C0B /* Credits.rtf in Resources */,
+				54305E7C1388C21600873C0B /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54305E7F1388C21600873C0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54305E8B1388C21600873C0B /* InfoPlist.strings in Resources */,
+				54305E8E1388C21600873C0B /* NowPlayingFriendsMacAppTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		54305E801388C21600873C0B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		54305E5D1388C21500873C0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54305E731388C21500873C0B /* main.m in Sources */,
+				54305E791388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54305E7D1388C21600873C0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54305E901388C21600873C0B /* NowPlayingFriendsMacAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		54305E851388C21600873C0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 54305E601388C21500873C0B /* NowPlayingFriendsMacApp */;
+			targetProxy = 54305E841388C21600873C0B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		54305E6E1388C21500873C0B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54305E6F1388C21500873C0B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		54305E741388C21500873C0B /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54305E751388C21500873C0B /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		54305E7A1388C21600873C0B /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54305E7B1388C21600873C0B /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		54305E891388C21600873C0B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54305E8A1388C21600873C0B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		54305E911388C21600873C0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		54305E921388C21600873C0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		54305E941388C21600873C0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NowPlayingFriendsMacApp/NowPlayingFriendsMacApp-Prefix.pch";
+				INFOPLIST_FILE = "NowPlayingFriendsMacApp/NowPlayingFriendsMacApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		54305E951388C21600873C0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NowPlayingFriendsMacApp/NowPlayingFriendsMacApp-Prefix.pch";
+				INFOPLIST_FILE = "NowPlayingFriendsMacApp/NowPlayingFriendsMacApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		54305E971388C21600873C0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NowPlayingFriendsMacApp.app/Contents/MacOS/NowPlayingFriendsMacApp";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NowPlayingFriendsMacAppTests/NowPlayingFriendsMacAppTests-Prefix.pch";
+				INFOPLIST_FILE = "NowPlayingFriendsMacAppTests/NowPlayingFriendsMacAppTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		54305E981388C21600873C0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NowPlayingFriendsMacApp.app/Contents/MacOS/NowPlayingFriendsMacApp";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NowPlayingFriendsMacAppTests/NowPlayingFriendsMacAppTests-Prefix.pch";
+				INFOPLIST_FILE = "NowPlayingFriendsMacAppTests/NowPlayingFriendsMacAppTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		54305E5B1388C21500873C0B /* Build configuration list for PBXProject "NowPlayingFriendsMacApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54305E911388C21600873C0B /* Debug */,
+				54305E921388C21600873C0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54305E931388C21600873C0B /* Build configuration list for PBXNativeTarget "NowPlayingFriendsMacApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54305E941388C21600873C0B /* Debug */,
+				54305E951388C21600873C0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		54305E961388C21600873C0B /* Build configuration list for PBXNativeTarget "NowPlayingFriendsMacAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54305E971388C21600873C0B /* Debug */,
+				54305E981388C21600873C0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 54305E581388C21500873C0B /* Project object */;
+}
