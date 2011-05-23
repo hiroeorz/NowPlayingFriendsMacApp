@@ -22,8 +22,10 @@
   iTunesApplication *iTunes;
   NSTextField *albumTitleTextField;
   NSTextField *artistNameTextField;
+  NSImageView *artworkImageView;
 }
 
+@property (nonatomic, retain) IBOutlet NSImageView *artworkImageView;
 @property (nonatomic, retain) IBOutlet NSTextField *albumTitleTextField;
 @property (nonatomic, retain) IBOutlet NSTextField *artistNameTextField;
 @property (nonatomic, retain) IBOutlet NSButton *albumSelectButton;
@@ -35,10 +37,16 @@
 @property (nonatomic, retain) iTunesApplication *iTunes;
 @property (nonatomic, retain, readonly) NowPlayingFriendsMacAppAppDelegate *appDelegate;
 
+- (IBAction)playerControlButtonClicked:(id)sender;
 - (IBAction)backTrack:(id)sender;
 - (IBAction)fastForward:(id)sender;
 - (IBAction)togglePlayStop:(id)sender;
 - (IBAction)nextTrack:(id)sender;
+
+- (IBAction)setVolume:(id)sender;
+- (IBAction)setPosition:(id)sender;
+- (IBAction)setShuffle:(id)sender;
+- (IBAction)setRepeat:(id)sender;
 
 - (void)updateViewsWhenStateChange;
 
