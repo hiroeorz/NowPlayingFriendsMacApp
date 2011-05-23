@@ -7,8 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Classes/iTunes.h"
 
-@interface NowPlayingFriendsMacAppAppDelegate : NSObject <NSApplicationDelegate> {
+
+@interface NowPlayingFriendsMacAppAppDelegate : 
+  NSObject <NSApplicationDelegate> {
+
 @private
     NSWindow *window;
 }

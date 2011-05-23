@@ -17,6 +17,17 @@
 		54305E8B1388C21600873C0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54305E891388C21600873C0B /* InfoPlist.strings */; };
 		54305E8E1388C21600873C0B /* NowPlayingFriendsMacAppTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 54305E8D1388C21600873C0B /* NowPlayingFriendsMacAppTests.h */; };
 		54305E901388C21600873C0B /* NowPlayingFriendsMacAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 54305E8F1388C21600873C0B /* NowPlayingFriendsMacAppTests.m */; };
+		54305EA51388C78500873C0B /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305E9D1388C78500873C0B /* Next.png */; };
+		54305EA61388C78500873C0B /* Next_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305E9E1388C78500873C0B /* Next_mini.png */; };
+		54305EA71388C78500873C0B /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305E9F1388C78500873C0B /* Pause.png */; };
+		54305EA81388C78500873C0B /* Pause_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305EA01388C78500873C0B /* Pause_mini.png */; };
+		54305EA91388C78500873C0B /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305EA11388C78500873C0B /* Play.png */; };
+		54305EAA1388C78500873C0B /* Play_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305EA21388C78500873C0B /* Play_mini.png */; };
+		54305EAB1388C78500873C0B /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305EA31388C78500873C0B /* Previous.png */; };
+		54305EAC1388C78500873C0B /* Previous_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305EA41388C78500873C0B /* Previous_mini.png */; };
+		54305EB21388EA3000873C0B /* friends2_wide305.png in Resources */ = {isa = PBXBuildFile; fileRef = 54305EB11388EA3000873C0B /* friends2_wide305.png */; };
+		54305EB713895AFB00873C0B /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54305EB613895AFB00873C0B /* ScriptingBridge.framework */; };
+		54305EC01389F63900873C0B /* MusicPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54305EBF1389F63900873C0B /* MusicPlayerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +46,33 @@
 		54305E681388C21500873C0B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		54305E691388C21500873C0B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		54305E6A1388C21500873C0B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		54305E6D1388C21500873C0B /* NowPlayingFriendsMacApp-Info.plist */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacApp-Info.plist"; sourceTree = "<group>"; };
+		54305E6D1388C21500873C0B /* NowPlayingFriendsMacApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NowPlayingFriendsMacApp-Info.plist"; sourceTree = "<group>"; };
 		54305E6F1388C21500873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		54305E711388C21500873C0B /* NowPlayingFriendsMacApp-Prefix.pch */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacApp-Prefix.pch"; sourceTree = "<group>"; };
+		54305E711388C21500873C0B /* NowPlayingFriendsMacApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NowPlayingFriendsMacApp-Prefix.pch"; sourceTree = "<group>"; };
 		54305E721388C21500873C0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		54305E751388C21500873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		54305E771388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.h */ = {isa = PBXFileReference; path = NowPlayingFriendsMacAppAppDelegate.h; sourceTree = "<group>"; };
+		54305E771388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NowPlayingFriendsMacAppAppDelegate.h; sourceTree = "<group>"; };
 		54305E781388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowPlayingFriendsMacAppAppDelegate.m; sourceTree = "<group>"; };
 		54305E7B1388C21600873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		54305E821388C21600873C0B /* NowPlayingFriendsMacAppTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NowPlayingFriendsMacAppTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		54305E881388C21600873C0B /* NowPlayingFriendsMacAppTests-Info.plist */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacAppTests-Info.plist"; sourceTree = "<group>"; };
+		54305E881388C21600873C0B /* NowPlayingFriendsMacAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NowPlayingFriendsMacAppTests-Info.plist"; sourceTree = "<group>"; };
 		54305E8A1388C21600873C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		54305E8C1388C21600873C0B /* NowPlayingFriendsMacAppTests-Prefix.pch */ = {isa = PBXFileReference; path = "NowPlayingFriendsMacAppTests-Prefix.pch"; sourceTree = "<group>"; };
+		54305E8C1388C21600873C0B /* NowPlayingFriendsMacAppTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NowPlayingFriendsMacAppTests-Prefix.pch"; sourceTree = "<group>"; };
 		54305E8D1388C21600873C0B /* NowPlayingFriendsMacAppTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NowPlayingFriendsMacAppTests.h; sourceTree = "<group>"; };
 		54305E8F1388C21600873C0B /* NowPlayingFriendsMacAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NowPlayingFriendsMacAppTests.m; sourceTree = "<group>"; };
+		54305E9D1388C78500873C0B /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
+		54305E9E1388C78500873C0B /* Next_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next_mini.png; sourceTree = "<group>"; };
+		54305E9F1388C78500873C0B /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		54305EA01388C78500873C0B /* Pause_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause_mini.png; sourceTree = "<group>"; };
+		54305EA11388C78500873C0B /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
+		54305EA21388C78500873C0B /* Play_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play_mini.png; sourceTree = "<group>"; };
+		54305EA31388C78500873C0B /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
+		54305EA41388C78500873C0B /* Previous_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous_mini.png; sourceTree = "<group>"; };
+		54305EB11388EA3000873C0B /* friends2_wide305.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friends2_wide305.png; sourceTree = "<group>"; };
+		54305EB613895AFB00873C0B /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		54305EB813895C3D00873C0B /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		54305EBE1389F63900873C0B /* MusicPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPlayerController.h; sourceTree = "<group>"; };
+		54305EBF1389F63900873C0B /* MusicPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54305EB713895AFB00873C0B /* ScriptingBridge.framework in Frameworks */,
 				54305E661388C21500873C0B /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +99,7 @@
 		54305E561388C21500873C0B = {
 			isa = PBXGroup;
 			children = (
+				54305EB613895AFB00873C0B /* ScriptingBridge.framework */,
 				54305E6B1388C21500873C0B /* NowPlayingFriendsMacApp */,
 				54305E861388C21600873C0B /* NowPlayingFriendsMacAppTests */,
 				54305E641388C21500873C0B /* Frameworks */,
@@ -112,6 +138,8 @@
 		54305E6B1388C21500873C0B /* NowPlayingFriendsMacApp */ = {
 			isa = PBXGroup;
 			children = (
+				54305EB313894EB800873C0B /* Classes */,
+				54305E991388C73B00873C0B /* Resources */,
 				54305E771388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.h */,
 				54305E781388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m */,
 				54305E7A1388C21600873C0B /* MainMenu.xib */,
@@ -150,6 +178,56 @@
 				54305E8C1388C21600873C0B /* NowPlayingFriendsMacAppTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		54305E991388C73B00873C0B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54305EAE1388E96A00873C0B /* images */,
+				54305E9B1388C78500873C0B /* icons */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		54305E9B1388C78500873C0B /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				54305E9C1388C78500873C0B /* mediaIcons005 */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		54305E9C1388C78500873C0B /* mediaIcons005 */ = {
+			isa = PBXGroup;
+			children = (
+				54305E9D1388C78500873C0B /* Next.png */,
+				54305E9E1388C78500873C0B /* Next_mini.png */,
+				54305E9F1388C78500873C0B /* Pause.png */,
+				54305EA01388C78500873C0B /* Pause_mini.png */,
+				54305EA11388C78500873C0B /* Play.png */,
+				54305EA21388C78500873C0B /* Play_mini.png */,
+				54305EA31388C78500873C0B /* Previous.png */,
+				54305EA41388C78500873C0B /* Previous_mini.png */,
+			);
+			path = mediaIcons005;
+			sourceTree = "<group>";
+		};
+		54305EAE1388E96A00873C0B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				54305EB11388EA3000873C0B /* friends2_wide305.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		54305EB313894EB800873C0B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				54305EBE1389F63900873C0B /* MusicPlayerController.h */,
+				54305EBF1389F63900873C0B /* MusicPlayerController.m */,
+				54305EB813895C3D00873C0B /* iTunes.h */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +300,15 @@
 				54305E701388C21500873C0B /* InfoPlist.strings in Resources */,
 				54305E761388C21500873C0B /* Credits.rtf in Resources */,
 				54305E7C1388C21600873C0B /* MainMenu.xib in Resources */,
+				54305EA51388C78500873C0B /* Next.png in Resources */,
+				54305EA61388C78500873C0B /* Next_mini.png in Resources */,
+				54305EA71388C78500873C0B /* Pause.png in Resources */,
+				54305EA81388C78500873C0B /* Pause_mini.png in Resources */,
+				54305EA91388C78500873C0B /* Play.png in Resources */,
+				54305EAA1388C78500873C0B /* Play_mini.png in Resources */,
+				54305EAB1388C78500873C0B /* Previous.png in Resources */,
+				54305EAC1388C78500873C0B /* Previous_mini.png in Resources */,
+				54305EB21388EA3000873C0B /* friends2_wide305.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +346,7 @@
 			files = (
 				54305E731388C21500873C0B /* main.m in Sources */,
 				54305E791388C21500873C0B /* NowPlayingFriendsMacAppAppDelegate.m in Sources */,
+				54305EC01389F63900873C0B /* MusicPlayerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
