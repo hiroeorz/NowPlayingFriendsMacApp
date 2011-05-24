@@ -17,7 +17,10 @@
 @property (nonatomic, retain) IBOutlet NSTextField *tweetEditField;
 
 
-- (IBAction)addYouTubeLink:(id)sender;
 - (IBAction)sendTweet:(id)sender;
+- (IBAction)addYouTubeLink:(id)sender;
+- (void)addYouTubeLinkAfterYouTubeSearch:(NSArray *)searchResults;
+- (IBAction)addITunesStoreSearchTweet:(id)sender;
+- (void)addITunesStoreSearchLink:(NSString *)linkUrl;
 
 @end

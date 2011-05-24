@@ -8,10 +8,11 @@
 
 #import "TwitterSendController.h"
 
+#import "ITunesStore.h"
+#import "MusicPlayerController.h"
 #import "TwitterClient.h"
 #import "YouTubeClient.h"
 #import "iTunes.h"
-#import "MusicPlayerController.h"
 
 
 @interface TwitterSendController (Local)
@@ -50,11 +51,13 @@
   [client updateStatus:message inReplyToStatusId:nil delegate:self];
 }
 
+#pragma mark
+#pragma YouTube Link Methods
+
 - (IBAction)addYouTubeLink:(id)sender {
   
   MusicPlayerController *musicPlayer = [[MusicPlayerController alloc] init];
   NSString *songTitle = [musicPlayer.iTunes.currentTrack name];
-  NSString *albumTitle = [musicPlayer.iTunes.currentTrack album];
   NSString *artistName = [musicPlayer.iTunes.currentTrack artist];
 
   YouTubeClient *youTube = [[YouTubeClient alloc] init];
@@ -62,8 +65,6 @@
 	   delegate:self action:@selector(addYouTubeLinkAfterYouTubeSearch:)
 	   count:1]; 
 }
-
-#pragma mark
 
 - (void)addYouTubeLinkAfterYouTubeSearch:(NSArray *)searchResults {
 
@@ -80,6 +81,34 @@
     [tweetEditField setStringValue:tweet];
   } else {
     NSLog(@"YouTube link is not exist.");
+  }
+}
+
+#pragma mark
+#pragma iTunesStore Link Methods
+
+- (IBAction)addITunesStoreSearchTweet:(id)sender {
+
+  MusicPlayerController *musicPlayer = [[MusicPlayerController alloc] init];
+  NSString *songTitle = [musicPlayer.iTunes.currentTrack name];
+  NSString *albumTitle = [musicPlayer.iTunes.currentTrack album];
+  NSString *artistName = [musicPlayer.iTunes.currentTrack artist];
+
+  ITunesStore *store = [[ITunesStore alloc] init];
+  [store searchLinkUrlWithTitle:songTitle album:albumTitle artist:artistName
+	 delegate:self 
+	 action:@selector(addITunesStoreSearchLink:)];
+}
+
+- (void)addITunesStoreSearchLink:(NSString *)linkUrl {
+
+  NSString *tweet = [tweetEditField stringValue];
+
+  if (linkUrl != nil) {
+    tweet = [[NSString alloc] initWithFormat:@"%@ iTunes: %@", tweet, linkUrl];
+    [tweetEditField setStringValue:tweet];
+  } else {
+    NSLog(@"cannot create iTunes Link because link is nil");
   }
 }
 

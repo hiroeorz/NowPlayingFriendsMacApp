@@ -2,3 +2,4 @@ build
 .DS_Store
 *~
 TwitterClient+ConsumerKey.h
+Bitly+APIKey.h
