@@ -31,4 +31,10 @@
     
 }
 
+
+- (void)getAccessTokenWithUsername:(NSString *)username 
+			  password:(NSString *)password
+			  delegate:(id)delegate;
+
+
 @end
