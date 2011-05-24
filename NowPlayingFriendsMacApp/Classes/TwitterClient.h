@@ -32,9 +32,23 @@
 }
 
 
+- (void)updateStatus:(NSString *)message
+   inReplyToStatusId:(NSNumber *)replayToStatusId
+	    delegate:(id)aDelegate;
+
+- (void)updateStatus:(NSString *)message
+   inReplyToStatusId:(NSNumber *)replayToStatusId
+	 withArtwork:(BOOL)withArtwork
+	    delegate:(id)aDelegate;
+
 - (void)getAccessTokenWithUsername:(NSString *)username 
 			  password:(NSString *)password
 			  delegate:(id)delegate;
 
+- (BOOL)oAuthTokenExist;
+- (void)saveToken:(NSDictionary *)token;
+- (NSDictionary *)oAuthToken;
+
+- (id)authenticatedRequest:(NSURL *)url;
 
 @end

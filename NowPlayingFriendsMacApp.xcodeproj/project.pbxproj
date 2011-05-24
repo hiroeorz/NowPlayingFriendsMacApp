@@ -49,6 +49,8 @@
 		54C6E862138B49ED0064D5F4 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E85B138B49ED0064D5F4 /* SBJsonBase.m */; };
 		54C6E863138B49ED0064D5F4 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E85D138B49ED0064D5F4 /* SBJsonParser.m */; };
 		54C6E864138B49ED0064D5F4 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E85F138B49ED0064D5F4 /* SBJsonWriter.m */; };
+		54C6E867138B4E020064D5F4 /* TwitterAuthenticateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E866138B4E020064D5F4 /* TwitterAuthenticateController.m */; };
+		54C6E871138B6EDE0064D5F4 /* TwitterSendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E870138B6EDD0064D5F4 /* TwitterSendController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,10 @@
 		54C6E85D138B49ED0064D5F4 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		54C6E85E138B49ED0064D5F4 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		54C6E85F138B49ED0064D5F4 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		54C6E865138B4E020064D5F4 /* TwitterAuthenticateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterAuthenticateController.h; sourceTree = "<group>"; };
+		54C6E866138B4E020064D5F4 /* TwitterAuthenticateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAuthenticateController.m; sourceTree = "<group>"; };
+		54C6E86F138B6EDD0064D5F4 /* TwitterSendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterSendController.h; sourceTree = "<group>"; };
+		54C6E870138B6EDD0064D5F4 /* TwitterSendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterSendController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +296,8 @@
 		54305EB313894EB800873C0B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				54C6E86F138B6EDD0064D5F4 /* TwitterSendController.h */,
+				54C6E870138B6EDD0064D5F4 /* TwitterSendController.m */,
 				54C6E854138B49ED0064D5F4 /* JSON */,
 				54C6E808138B48FB0064D5F4 /* OAuthConsumer */,
 				54C6E807138B487D0064D5F4 /* TwitterClient+ConsumerKey.h */,
@@ -298,6 +306,8 @@
 				54305EB813895C3D00873C0B /* iTunes.h */,
 				54C6E804138B48070064D5F4 /* TwitterClient.h */,
 				54C6E805138B48070064D5F4 /* TwitterClient.m */,
+				54C6E865138B4E020064D5F4 /* TwitterAuthenticateController.h */,
+				54C6E866138B4E020064D5F4 /* TwitterAuthenticateController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -511,6 +521,8 @@
 				54C6E862138B49ED0064D5F4 /* SBJsonBase.m in Sources */,
 				54C6E863138B49ED0064D5F4 /* SBJsonParser.m in Sources */,
 				54C6E864138B49ED0064D5F4 /* SBJsonWriter.m in Sources */,
+				54C6E867138B4E020064D5F4 /* TwitterAuthenticateController.m in Sources */,
+				54C6E871138B6EDE0064D5F4 /* TwitterSendController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
