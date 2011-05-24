@@ -140,17 +140,13 @@
 
 - (void)saveToken:(NSDictionary *)token {
   
-  NSFileManager *fileManager = [NSFileManager defaultManager];
   NSString *path = kTokenFilePath;
-
   [token writeToFile:path atomically:YES];
 }
 
 - (NSDictionary *)oAuthToken {
-
-  NSFileManager *fileManager = [NSFileManager defaultManager];
+    
   NSString *path = kTokenFilePath;
-
   NSDictionary *token = [[NSDictionary alloc] initWithContentsOfFile:path];
   return token;
 }

@@ -5754,7 +5754,7 @@
 				<integer>398</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/shin/src/NowPlayingFriendsMacApp/NowPlayingFriendsMacApp/Classes/TwitterAuthenticateController.m</string>
+		<string>file://localhost/Users/shin/src/NowPlayingFriendsMacApp/NowPlayingFriendsMacApp/Classes/TwitterClient.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -5772,7 +5772,7 @@
 				<integer>400</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/shin/src/NowPlayingFriendsMacApp/NowPlayingFriendsMacApp/Classes/TwitterClient.m</string>
+		<string>file://localhost/Users/shin/src/NowPlayingFriendsMacApp/NowPlayingFriendsMacApp/Classes/TwitterAuthenticateController.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -9317,7 +9317,7 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327905748.42983103</real>
+		<real>327911029.22707099</real>
 		<string>{0, 860}</string>
 		<string>{444, 0}</string>
 		<dict>
@@ -9554,9 +9554,9 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327905730.34978199</real>
-		<string>{625, 1357}</string>
-		<string>{2487, 0}</string>
+		<real>327911085.36504298</real>
+		<string>{3387, 986}</string>
+		<string>{4014, 0}</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -14241,7 +14241,7 @@
 				</dict>
 				<dict>
 					<key>CF$UID</key>
-					<integer>874</integer>
+					<integer>1074</integer>
 				</dict>
 			</array>
 		</dict>
@@ -14495,7 +14495,7 @@
 				<integer>1090</integer>
 			</dict>
 			<key>NS.time</key>
-			<real>327905743.42863101</real>
+			<real>327911080.36395001</real>
 		</dict>
 		<dict>
 			<key>$classes</key>
@@ -14506,7 +14506,7 @@
 			<key>$classname</key>
 			<string>NSDate</string>
 		</dict>
-		<string>Today at 13:55</string>
+		<string>Today at 15:24</string>
 		<integer>106</integer>
 		<dict>
 			<key>$class</key>
@@ -22602,7 +22602,7 @@
 				</dict>
 			</array>
 		</dict>
-		<string>TwitterAuthenticateController.m</string>
+		<string>TwitterClient.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -24324,7 +24324,7 @@
 				<integer>1598</integer>
 			</dict>
 		</dict>
-		<string>TwitterAuthenticateController.m</string>
+		<string>TwitterClient.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
@@ -24371,7 +24371,7 @@
 			<key>documentURL</key>
 			<dict>
 				<key>CF$UID</key>
-				<integer>582</integer>
+				<integer>592</integer>
 			</dict>
 			<key>timestamp</key>
 			<dict>
@@ -24424,10 +24424,10 @@
 				</dict>
 			</array>
 		</dict>
-		<real>327905748.43072897</real>
-		<string>{0, 860}</string>
-		<string>{444, 0}</string>
-		<string>@interface TwitterAuthenticateController(Local)</string>
+		<real>327911085.36591101</real>
+		<string>{3387, 986}</string>
+		<string>{4014, 0}</string>
+		<string>-oAuthToken</string>
 		<string>Xcode.IDEKit.EditorDocument.SourceCode</string>
 		<dict>
 			<key>$class</key>
@@ -24446,7 +24446,7 @@
 				<integer>1611</integer>
 			</dict>
 		</dict>
-		<string>file://localhost/Users/shin/src/NowPlayingFriendsMacApp/NowPlayingFriendsMacApp/Classes/TwitterAuthenticateController.m</string>
+		<string>file://localhost/Users/shin/src/NowPlayingFriendsMacApp/NowPlayingFriendsMacApp/Classes/TwitterClient.m</string>
 		<dict>
 			<key>$class</key>
 			<dict>
