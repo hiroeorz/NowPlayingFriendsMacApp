@@ -43,8 +43,6 @@
 		54C6E7F9138B44790064D5F4 /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E7DE138B44790064D5F4 /* OAToken.m */; };
 		54C6E7FA138B44790064D5F4 /* OAToken_KeychainExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E7E0138B44790064D5F4 /* OAToken_KeychainExtensions.m */; };
 		54C6E800138B46670064D5F4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C6E7FD138B46670064D5F4 /* Security.framework */; };
-		54C6E801138B46670064D5F4 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C6E7FE138B46670064D5F4 /* SecurityFoundation.framework */; };
-		54C6E802138B46670064D5F4 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C6E7FF138B46670064D5F4 /* SecurityInterface.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,8 +119,6 @@
 		54C6E7E0138B44790064D5F4 /* OAToken_KeychainExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAToken_KeychainExtensions.m; sourceTree = "<group>"; };
 		54C6E7E3138B44790064D5F4 /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
 		54C6E7FD138B46670064D5F4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		54C6E7FE138B46670064D5F4 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
-		54C6E7FF138B46670064D5F4 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = System/Library/Frameworks/SecurityInterface.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,8 +127,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54C6E800138B46670064D5F4 /* Security.framework in Frameworks */,
-				54C6E801138B46670064D5F4 /* SecurityFoundation.framework in Frameworks */,
-				54C6E802138B46670064D5F4 /* SecurityInterface.framework in Frameworks */,
 				54305EB713895AFB00873C0B /* ScriptingBridge.framework in Frameworks */,
 				54305E661388C21500873C0B /* Cocoa.framework in Frameworks */,
 			);
@@ -333,8 +327,6 @@
 			isa = PBXGroup;
 			children = (
 				54C6E7FD138B46670064D5F4 /* Security.framework */,
-				54C6E7FE138B46670064D5F4 /* SecurityFoundation.framework */,
-				54C6E7FF138B46670064D5F4 /* SecurityInterface.framework */,
 				54305EB613895AFB00873C0B /* ScriptingBridge.framework */,
 			);
 			name = "Project Frameworks";
