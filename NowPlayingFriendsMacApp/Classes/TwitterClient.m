@@ -7,6 +7,7 @@
 //
 
 #import "TwitterClient.h"
+#import "JSON/JSON.h"
 
 
 @implementation TwitterClient
