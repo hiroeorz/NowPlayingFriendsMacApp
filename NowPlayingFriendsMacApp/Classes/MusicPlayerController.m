@@ -26,7 +26,6 @@
 - (NSInteger)songTimeOfTrack:(iTunesTrack *)track;
 - (void)updateShuffleSegmentControl;
 - (void)updateRepeatSegmentControl;
-- (NSString *)tweetString;
 @end
 
 @implementation MusicPlayerController
@@ -298,31 +297,11 @@
   TwitterClient *client = [[TwitterClient alloc] init];
   
   if ([client oAuthTokenExist]) {
-    [tweetEditField setStringValue:[self tweetString]];
+    [tweetEditField setStringValue:[client tweetString:iTunes]];
     [tweetWindow makeKeyAndOrderFront:self];
   } else {
     [authWindow makeKeyAndOrderFront:self];    
   }
-}
-
-- (NSString *)tweetString {
-
-  NSString *template = kTweetTemplate;
-  NSString *songTitle = [iTunes.currentTrack name];
-  NSString *artistName = [iTunes.currentTrack artist];
-  NSString *albumName = [iTunes.currentTrack album];
-  NSString *tweet;
-
-  tweet = [template stringByReplacingOccurrencesOfString:@"[st]"
-		    withString:songTitle];
-
-  tweet = [tweet stringByReplacingOccurrencesOfString:@"[al]"
-		    withString:albumName];
-
-  tweet = [tweet stringByReplacingOccurrencesOfString:@"[ar]"
-		 withString:artistName];
-
-  return tweet;
 }
 
 @end

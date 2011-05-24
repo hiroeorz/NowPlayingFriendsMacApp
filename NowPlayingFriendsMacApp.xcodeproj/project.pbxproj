@@ -54,6 +54,8 @@
 		54C6E874138BC1750064D5F4 /* NowPlayingFriendsApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E873138BC1750064D5F4 /* NowPlayingFriendsApplication.m */; };
 		54C6E878138BC55E0064D5F4 /* twitter_newbird_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C6E877138BC55E0064D5F4 /* twitter_newbird_white.png */; };
 		54C6E87A138BC6360064D5F4 /* twitter_newbird_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C6E879138BC6360064D5F4 /* twitter_newbird_blue.png */; };
+		54C6E925138C02280064D5F4 /* TwitterClient+NowPlaying.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E924138C02280064D5F4 /* TwitterClient+NowPlaying.m */; };
+		54C6E928138C05D60064D5F4 /* YouTubeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E927138C05D50064D5F4 /* YouTubeClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +154,10 @@
 		54C6E873138BC1750064D5F4 /* NowPlayingFriendsApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowPlayingFriendsApplication.m; sourceTree = "<group>"; };
 		54C6E877138BC55E0064D5F4 /* twitter_newbird_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_newbird_white.png; sourceTree = "<group>"; };
 		54C6E879138BC6360064D5F4 /* twitter_newbird_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_newbird_blue.png; sourceTree = "<group>"; };
+		54C6E923138C02270064D5F4 /* TwitterClient+NowPlaying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TwitterClient+NowPlaying.h"; sourceTree = "<group>"; };
+		54C6E924138C02280064D5F4 /* TwitterClient+NowPlaying.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TwitterClient+NowPlaying.m"; sourceTree = "<group>"; };
+		54C6E926138C05C40064D5F4 /* YouTubeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeClient.h; sourceTree = "<group>"; };
+		54C6E927138C05D50064D5F4 /* YouTubeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +310,10 @@
 		54305EB313894EB800873C0B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				54C6E927138C05D50064D5F4 /* YouTubeClient.m */,
+				54C6E926138C05C40064D5F4 /* YouTubeClient.h */,
+				54C6E923138C02270064D5F4 /* TwitterClient+NowPlaying.h */,
+				54C6E924138C02280064D5F4 /* TwitterClient+NowPlaying.m */,
 				54C6E86F138B6EDD0064D5F4 /* TwitterSendController.h */,
 				54C6E870138B6EDD0064D5F4 /* TwitterSendController.m */,
 				54C6E854138B49ED0064D5F4 /* JSON */,
@@ -545,6 +555,8 @@
 				54C6E867138B4E020064D5F4 /* TwitterAuthenticateController.m in Sources */,
 				54C6E871138B6EDE0064D5F4 /* TwitterSendController.m in Sources */,
 				54C6E874138BC1750064D5F4 /* NowPlayingFriendsApplication.m in Sources */,
+				54C6E925138C02280064D5F4 /* TwitterClient+NowPlaying.m in Sources */,
+				54C6E928138C05D60064D5F4 /* YouTubeClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

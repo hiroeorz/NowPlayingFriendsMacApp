@@ -2064,7 +2064,7 @@
 										<string key="NSFrame">{{10, 33}, {311, 239}}</string>
 										<reference key="NSSuperview" ref="142690048"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
+										<reference key="NSNextKeyView" ref="142690048"/>
 									</object>
 									<string key="NSLabel">SONG</string>
 									<reference key="NSColor" ref="368726030"/>
@@ -3341,6 +3341,14 @@
 					</object>
 					<int key="connectionID">775</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addYouTubeLink:</string>
+						<reference key="source" ref="501840842"/>
+						<reference key="destination" ref="931283294"/>
+					</object>
+					<int key="connectionID">776</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -4447,15 +4455,6 @@
 						<reference key="parent" ref="238972488"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">642</int>
-						<reference key="object" ref="1003917531"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="190719182"/>
-						</object>
-						<reference key="parent" ref="238972488"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">643</int>
 						<reference key="object" ref="995923955"/>
 						<object class="NSMutableArray" key="children">
@@ -4496,11 +4495,6 @@
 						<int key="objectID">648</int>
 						<reference key="object" ref="925508964"/>
 						<reference key="parent" ref="995923955"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">649</int>
-						<reference key="object" ref="190719182"/>
-						<reference key="parent" ref="1003917531"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">650</int>
@@ -4999,6 +4993,20 @@
 						<int key="objectID">769</int>
 						<reference key="object" ref="456965797"/>
 						<reference key="parent" ref="829969710"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">642</int>
+						<reference key="object" ref="1003917531"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="190719182"/>
+						</object>
+						<reference key="parent" ref="238972488"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">649</int>
+						<reference key="object" ref="190719182"/>
+						<reference key="parent" ref="1003917531"/>
 					</object>
 				</object>
 			</object>
@@ -5707,7 +5715,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">775</int>
+			<int key="maxID">782</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -6091,14 +6099,35 @@
 					<string key="className">TwitterSendController</string>
 					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">sendTweet:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addYouTubeLink:</string>
+							<string>sendTweet:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">sendTweet:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">sendTweet:</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addYouTubeLink:</string>
+							<string>sendTweet:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">addYouTubeLink:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">sendTweet:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">

@@ -7,6 +7,8 @@
 //
 
 #import "TwitterClient.h"
+#import "TwitterClient+NowPlaying.h"
+
 #import "JSON/JSON.h"
 #import "OAuthConsumer/OAConsumer.h"
 #import "OAuthConsumer/OADataFetcher.h"

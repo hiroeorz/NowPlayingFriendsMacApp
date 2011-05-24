@@ -9,8 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 
-#define kTweetTemplate @"♪ #NowPlaying \"[st]\" by \"[ar]\" on album \"[al]\" ♬"
-
 #define kMaxTweetLength 140
 #define kProfileImageDirectory @"profileImages"
 #define kYouTubeThumbnailDirectory @"youtubeThumbnails"
