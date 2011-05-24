@@ -14,7 +14,7 @@
   NSObject <NSApplicationDelegate> {
 
 @private
-    NSWindow *window;
+  NSWindow *window;
 }
 
 @property (assign) IBOutlet NSWindow *window;

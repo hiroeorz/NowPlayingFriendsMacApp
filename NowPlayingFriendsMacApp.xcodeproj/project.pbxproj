@@ -51,6 +51,9 @@
 		54C6E864138B49ED0064D5F4 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E85F138B49ED0064D5F4 /* SBJsonWriter.m */; };
 		54C6E867138B4E020064D5F4 /* TwitterAuthenticateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E866138B4E020064D5F4 /* TwitterAuthenticateController.m */; };
 		54C6E871138B6EDE0064D5F4 /* TwitterSendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E870138B6EDD0064D5F4 /* TwitterSendController.m */; };
+		54C6E874138BC1750064D5F4 /* NowPlayingFriendsApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E873138BC1750064D5F4 /* NowPlayingFriendsApplication.m */; };
+		54C6E878138BC55E0064D5F4 /* twitter_newbird_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C6E877138BC55E0064D5F4 /* twitter_newbird_white.png */; };
+		54C6E87A138BC6360064D5F4 /* twitter_newbird_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C6E879138BC6360064D5F4 /* twitter_newbird_blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +148,10 @@
 		54C6E866138B4E020064D5F4 /* TwitterAuthenticateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAuthenticateController.m; sourceTree = "<group>"; };
 		54C6E86F138B6EDD0064D5F4 /* TwitterSendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterSendController.h; sourceTree = "<group>"; };
 		54C6E870138B6EDD0064D5F4 /* TwitterSendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterSendController.m; sourceTree = "<group>"; };
+		54C6E872138BC1750064D5F4 /* NowPlayingFriendsApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NowPlayingFriendsApplication.h; sourceTree = "<group>"; };
+		54C6E873138BC1750064D5F4 /* NowPlayingFriendsApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NowPlayingFriendsApplication.m; sourceTree = "<group>"; };
+		54C6E877138BC55E0064D5F4 /* twitter_newbird_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_newbird_white.png; sourceTree = "<group>"; };
+		54C6E879138BC6360064D5F4 /* twitter_newbird_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_newbird_blue.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +272,7 @@
 		54305E9B1388C78500873C0B /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				54C6E876138BC55E0064D5F4 /* menuIcons */,
 				54305E9C1388C78500873C0B /* mediaIcons005 */,
 			);
 			path = icons;
@@ -308,6 +316,8 @@
 				54C6E805138B48070064D5F4 /* TwitterClient.m */,
 				54C6E865138B4E020064D5F4 /* TwitterAuthenticateController.h */,
 				54C6E866138B4E020064D5F4 /* TwitterAuthenticateController.m */,
+				54C6E872138BC1750064D5F4 /* NowPlayingFriendsApplication.h */,
+				54C6E873138BC1750064D5F4 /* NowPlayingFriendsApplication.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -382,6 +392,15 @@
 				54C6E85F138B49ED0064D5F4 /* SBJsonWriter.m */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		54C6E876138BC55E0064D5F4 /* menuIcons */ = {
+			isa = PBXGroup;
+			children = (
+				54C6E879138BC6360064D5F4 /* twitter_newbird_blue.png */,
+				54C6E877138BC55E0064D5F4 /* twitter_newbird_white.png */,
+			);
+			path = menuIcons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +482,8 @@
 				54305EAB1388C78500873C0B /* Previous.png in Resources */,
 				54305EAC1388C78500873C0B /* Previous_mini.png in Resources */,
 				54305EB21388EA3000873C0B /* friends2_wide305.png in Resources */,
+				54C6E878138BC55E0064D5F4 /* twitter_newbird_white.png in Resources */,
+				54C6E87A138BC6360064D5F4 /* twitter_newbird_blue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +544,7 @@
 				54C6E864138B49ED0064D5F4 /* SBJsonWriter.m in Sources */,
 				54C6E867138B4E020064D5F4 /* TwitterAuthenticateController.m in Sources */,
 				54C6E871138B6EDE0064D5F4 /* TwitterSendController.m in Sources */,
+				54C6E874138BC1750064D5F4 /* NowPlayingFriendsApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

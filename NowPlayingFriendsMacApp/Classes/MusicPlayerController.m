@@ -6,8 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "iTunes.h"
 #import "MusicPlayerController.h"
+
+#import "TwitterClient.h"
+#import "iTunes.h"
 #import "../NowPlayingFriendsMacAppAppDelegate.h"
 
 
@@ -24,6 +26,7 @@
 - (NSInteger)songTimeOfTrack:(iTunesTrack *)track;
 - (void)updateShuffleSegmentControl;
 - (void)updateRepeatSegmentControl;
+- (NSString *)tweetString;
 @end
 
 @implementation MusicPlayerController
@@ -38,7 +41,11 @@
 @synthesize albumTitleTextField;
 @synthesize artistNameTextField;
 @synthesize artworkImageView;
+@synthesize authWindow;
+@synthesize tweetWindow;
+@synthesize tweetEditField;
 @dynamic appDelegate;
+
 
 #pragma mark -
 #pragma Initializer
@@ -256,6 +263,7 @@
 #pragma mark
 #pragma Toolbar Delegate Methods
 
+
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar {
   return [NSArray arrayWithObjects:@"Tweet", nil];
 }
@@ -263,7 +271,6 @@
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar {
   return [NSArray arrayWithObjects:@"Tweet", nil];
 }
-
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar 
      itemForItemIdentifier:(NSString *)itemIdentifier 
@@ -274,15 +281,48 @@
  
  if ([itemIdentifier isEqual:@"Tweet"]) {
   [toolbarItem setLabel:@"Tweet"];
-  [toolbarItem setImage:[NSImage imageNamed:@"hello"]];
+  [toolbarItem setImage:[NSImage imageNamed:@"twitter_newbird_white.png"]];
   
   [toolbarItem setTarget:self];
-  [toolbarItem setAction:@selector(hello:)];
+  [toolbarItem setAction:@selector(openTweetWindow:)];
 
  } else {
   toolbarItem = nil;
  }
  return toolbarItem;
+}
+
+- (void)openTweetWindow:(id)sender {
+  NSLog(@"open Tweet window: %@", tweetWindow);
+
+  TwitterClient *client = [[TwitterClient alloc] init];
+  
+  if ([client oAuthTokenExist]) {
+    [tweetEditField setStringValue:[self tweetString]];
+    [tweetWindow makeKeyAndOrderFront:self];
+  } else {
+    [authWindow makeKeyAndOrderFront:self];    
+  }
+}
+
+- (NSString *)tweetString {
+
+  NSString *template = kTweetTemplate;
+  NSString *songTitle = [iTunes.currentTrack name];
+  NSString *artistName = [iTunes.currentTrack artist];
+  NSString *albumName = [iTunes.currentTrack album];
+  NSString *tweet;
+
+  tweet = [template stringByReplacingOccurrencesOfString:@"[st]"
+		    withString:songTitle];
+
+  tweet = [tweet stringByReplacingOccurrencesOfString:@"[al]"
+		    withString:albumName];
+
+  tweet = [tweet stringByReplacingOccurrencesOfString:@"[ar]"
+		 withString:artistName];
+
+  return tweet;
 }
 
 @end
