@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "iTunes.h"
 
 #define kiTunesVolumeChanged @"iTunesVolumeChanged"
 #define kiTunesRepeatModeChanged @"iTunesRepeatModeChanged"
 #define kiTunesShuffleModeChanged @"iTunesShuffleModeChanged"
+#define kiTunesPositionChanged @"iTunesPositionChanged"
+#define kiTunesTrackChanged @"iTunesTrackChanged"
+#define kiTunesPlayStateChanged @"iTunesPlayStateChanged"
 
 
 @class MusicPlayerController;
@@ -23,15 +26,23 @@
   NSNotification *volumeNotification;
   NSNotification *repeatModeNotification;
   NSNotification *shuffleModeNotification;
+  NSNotification *positionNotification;
+  NSNotification *trackChangedNotification;
   NSInteger volume;
   NSInteger repeatMode;
   NSInteger shuffleMode;
+  NSInteger position;
+  NSInteger trackId;
+  iTunesEPlS playState;
 }
 
 @property (nonatomic, retain) NSNotificationCenter *notificationCenter;
 @property (nonatomic, retain) NSNotification *volumeNotification;
 @property (nonatomic, retain) NSNotification *repeatModeNotification;
 @property (nonatomic, retain) NSNotification *shuffleModeNotification;
+@property (nonatomic, retain) NSNotification *positionNotification;
+@property (nonatomic, retain) NSNotification *trackChnangedNotification;
+@property (nonatomic, retain) NSNotification *playStateChangedNotification;
 
 
 - (void)startWatching:(MusicPlayerController *)musicPlayer;

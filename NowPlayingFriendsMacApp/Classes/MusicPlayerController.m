@@ -25,8 +25,6 @@
 
 @interface MusicPlayerController (Local)
 - (NSInteger)songTimeOfTrack:(iTunesTrack *)track;
-- (void)updateShuffleSegmentControl;
-- (void)updateRepeatSegmentControl;
 @end
 
 @implementation MusicPlayerController
@@ -70,15 +68,28 @@
 #pragma Awake Methods
 
 - (void)awakeFromNib {
+
   [self updateViewsWhenStateChange];
 
   notificationCenter = [NSNotificationCenter defaultCenter];
-  [notificationCenter addObserver:self selector:@selector(updateVolumeSlider)
+  [notificationCenter addObserver:self 
+		      selector:@selector(updateVolumeSlider)
 		      name:kiTunesVolumeChanged object:nil];
-  [notificationCenter addObserver:self selector:@selector(updateRepeatSegmentControl)
+  [notificationCenter addObserver:self 
+		      selector:@selector(updateRepeatSegmentControl)
 		      name:kiTunesRepeatModeChanged object:nil];
-  [notificationCenter addObserver:self selector:@selector(updateShuffleSegmentControl)
+  [notificationCenter addObserver:self 
+		      selector:@selector(updateShuffleSegmentControl)
 		      name:kiTunesShuffleModeChanged object:nil];
+  [notificationCenter addObserver:self 
+		      selector:@selector(updatePositionSlider)
+		      name:kiTunesPositionChanged object:nil];
+  [notificationCenter addObserver:self 
+		      selector:@selector(updateTrackInformation)
+		      name:kiTunesTrackChanged object:nil];
+  [notificationCenter addObserver:self 
+		      selector:@selector(updateMusicSegmentControl)
+		      name:kiTunesPlayStateChanged object:nil];
 
   watcher = [[MusicPlayerStateWatcher alloc] init];
   [watcher performSelectorInBackground:@selector(startWatching:)
@@ -178,12 +189,22 @@
 
   iTunesPlaylist *playlist = [iTunes currentPlaylist];
   iTunesERpt currentRepeatMode = [playlist songRepeat];
-  repeatSegmentedControl.selectedSegment = currentRepeatMode;
+
+  switch (currentRepeatMode) {
+  case iTunesERptOff:
+    repeatSegmentedControl.selectedSegment = 0;
+    break;
+  case iTunesERptOne:
+    repeatSegmentedControl.selectedSegment = 1;
+    break;
+  case iTunesERptAll:
+    repeatSegmentedControl.selectedSegment = 2;
+    break;
+  }
 }
 
 - (void)updateVolumeSlider {
   [volumeSlider setDoubleValue:(double)iTunes.soundVolume];
-  NSLog(@"updated volume");
 }
 
 - (void)updatePositionSlider {
@@ -232,11 +253,17 @@
   SBElementArray *artworks = [iTunes.currentTrack artworks];
   iTunesArtwork *artwork = [artworks objectAtIndex:0];
 
-  if (artwork != nil) {
+  if ([artworks count] > 0) {
     artworkImageView.image = artwork.data;
   } else {
     artworkImageView.image = [NSImage imageNamed:@"friends2_wide305.png"];
   }
+}
+
+- (void)updateTrackInformation {
+
+  [self updateSongTitle];
+  [self updateAlbumArtwork];  
 }
 
 - (void)updateViewsWhenStateChange {
@@ -296,7 +323,6 @@
 }
 
 - (void)openTweetWindow:(id)sender {
-  NSLog(@"open Tweet window: %@", tweetWindow);
 
   TwitterClient *client = [[TwitterClient alloc] init];
   

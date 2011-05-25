@@ -12,13 +12,15 @@
 #import "iTunes.h"
 
 
-#define kMusicPlayerStateWatchInterval 1.01f;
+#define kMusicPlayerStateWatchInterval 0.03f;
 
 
 @interface MusicPlayerStateWatcher (Local) 
+- (void)checkTrackChanged:(MusicPlayerController *)musicPlayer;
 - (void)checkVolumeChanged:(MusicPlayerController *)musicPlayer;
 - (void)checkRepeatModeChanged:(MusicPlayerController *)musicPlayer;
 - (void)checkShuffleModeChanged:(MusicPlayerController *)musicPlayer;
+- (void)checkPositionChanged:(MusicPlayerController *)musicPlayer;
 - (void)sleep:(float)sec;
 @end
 
@@ -27,6 +29,9 @@
 @synthesize notificationCenter;
 @synthesize volumeNotification;
 @synthesize repeatModeNotification;
+@synthesize positionNotification;
+@synthesize trackChnangedNotification;
+@synthesize playStateChangedNotification;
 
 - (id)init {
   self = [super init];
@@ -35,6 +40,8 @@
     volume = -1;
     repeatMode = -1;
     shuffleMode = -1;
+    position = -1;
+    playState = 0;
 
     notificationCenter = [NSNotificationCenter defaultCenter];
     volumeNotification = [[NSNotification notificationWithName:kiTunesVolumeChanged 
@@ -45,6 +52,15 @@
     shuffleModeNotification = [[NSNotification 
 				 notificationWithName:kiTunesShuffleModeChanged 
 				 object:self] retain];
+    positionNotification = [[NSNotification 
+			      notificationWithName:kiTunesPositionChanged 
+			      object:self] retain];
+    trackChnangedNotification = [[NSNotification 
+				   notificationWithName:kiTunesTrackChanged 
+				   object:self] retain];
+    playStateChangedNotification = [[NSNotification 
+				   notificationWithName:kiTunesPlayStateChanged 
+				   object:self] retain];
   }
     
   return self;
@@ -61,9 +77,12 @@
 
   while(YES) {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    [self checkPlayStateChanged:musicPlayer];
+    [self checkTrackChanged:musicPlayer];
     [self checkVolumeChanged:musicPlayer];
     [self checkRepeatModeChanged:musicPlayer];
     [self checkShuffleModeChanged:musicPlayer];
+    [self checkPositionChanged:musicPlayer];
 
     float checkInterval = kMusicPlayerStateWatchInterval;
     [self sleep:checkInterval];
@@ -72,11 +91,29 @@
 
 }
 
+- (void)checkPlayStateChanged:(MusicPlayerController *)musicPlayer {
+  
+  iTunesEPlS newPlayState = [musicPlayer.iTunes playerState];
+
+  if (newPlayState != playState) {
+    playState = newPlayState;
+    [notificationCenter postNotification:playStateChangedNotification];
+  }
+}
+
+- (void)checkTrackChanged:(MusicPlayerController *)musicPlayer {
+  
+  NSInteger *newTrackId = musicPlayer.iTunes.currentTrack.databaseID;
+
+  if (newTrackId != trackId) {
+    trackId = newTrackId;
+    [notificationCenter postNotification:trackChnangedNotification];
+  }
+}
+
 - (void)checkVolumeChanged:(MusicPlayerController *)musicPlayer {
   
   if (musicPlayer.iTunes.soundVolume != volume) {
-    NSLog(@"volume changed! (%d -> %d)", 
-	  volume, musicPlayer.iTunes.soundVolume);
     volume = musicPlayer.iTunes.soundVolume;
     [notificationCenter postNotification:volumeNotification];
   }
@@ -88,10 +125,7 @@
   NSInteger newRepeatMode = playlist.songRepeat;
   
 
-  NSLog(@"repeat %d -> %d", newRepeatMode, repeatMode);
-
   if (newRepeatMode != repeatMode) {
-    NSLog(@"repeatMode changed! (%d -> %d)", repeatMode, newRepeatMode);
     repeatMode = newRepeatMode;
     [notificationCenter postNotification:repeatModeNotification];
   }
@@ -102,12 +136,19 @@
   iTunesPlaylist *playlist = [musicPlayer.iTunes currentPlaylist];
   NSInteger newShuffleMode = playlist.shuffle;
 
-  NSLog(@"shuffle %d -> %d", newShuffleMode, shuffleMode);
-
   if (newShuffleMode != shuffleMode) {
-    NSLog(@"shuffleMode changed! (%d -> %d)", shuffleMode, newShuffleMode);
     shuffleMode = newShuffleMode;
     [notificationCenter postNotification:shuffleModeNotification];
+  }
+}
+
+- (void)checkPositionChanged:(MusicPlayerController *)musicPlayer {
+  
+  NSInteger *newPosition = [musicPlayer.iTunes playerPosition];
+
+  if (newPosition != position) {
+    position = newPosition;
+    [notificationCenter postNotification:positionNotification];
   }
 }
 

@@ -77,5 +77,13 @@
 - (IBAction)setRepeat:(id)sender;
 
 - (void)updateViewsWhenStateChange;
+- (void)updateShuffleSegmentControl;
+- (void)updateRepeatSegmentControl;
+- (void)updateVolumeSlider;
+- (void)updatePositionSlider;
+- (void)updateSongTitle;
+- (void)updateMusicSegmentControl;
+- (void)updateAlbumArtwork;
+- (void)updateTrackInformation;
 
 @end

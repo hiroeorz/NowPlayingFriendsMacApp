@@ -1856,7 +1856,7 @@
 											<reference key="NSNextKeyView" ref="401992467"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSSliderCell" key="NSCell" id="115992737">
-												<int key="NSCellFlags">-2080244224</int>
+												<int key="NSCellFlags">-2079981824</int>
 												<int key="NSCellFlags2">0</int>
 												<string key="NSContents"/>
 												<reference key="NSControlView" ref="168162407"/>
@@ -1948,7 +1948,7 @@
 											<reference key="NSNextKeyView" ref="758921267"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSSliderCell" key="NSCell" id="340629471">
-												<int key="NSCellFlags">-2080244224</int>
+												<int key="NSCellFlags">-2079981824</int>
 												<int key="NSCellFlags2">0</int>
 												<string key="NSContents"/>
 												<reference key="NSControlView" ref="401992467"/>
@@ -2064,7 +2064,7 @@
 										<string key="NSFrame">{{10, 33}, {311, 239}}</string>
 										<reference key="NSSuperview" ref="142690048"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="142690048"/>
+										<reference key="NSNextKeyView"/>
 									</object>
 									<string key="NSLabel">SONG</string>
 									<reference key="NSColor" ref="368726030"/>
@@ -2173,7 +2173,7 @@
 												<string key="NSFrame">{{321, 15}, {66, 25}}</string>
 												<reference key="NSSuperview" ref="238972488"/>
 												<reference key="NSWindow"/>
-												<reference key="NSNextKeyView"/>
+												<reference key="NSNextKeyView" ref="726693840"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="523517497">
 													<int key="NSCellFlags">-2080244224</int>
