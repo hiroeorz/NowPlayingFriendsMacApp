@@ -8,9 +8,10 @@
 
 #import "MusicPlayerController.h"
 
+#import "../NowPlayingFriendsMacAppAppDelegate.h"
+#import "MusicPlayerStateWatcher.h"
 #import "TwitterClient.h"
 #import "iTunes.h"
-#import "../NowPlayingFriendsMacAppAppDelegate.h"
 
 
 #define kBackTrack 0
@@ -30,20 +31,21 @@
 
 @implementation MusicPlayerController
 
+@dynamic appDelegate;
 @synthesize albumSelectButton;
-@synthesize musicSegmentedControl;
-@synthesize positionSlider;
-@synthesize repeatSegmentedControl;
-@synthesize shuffleSegmentedControl;
-@synthesize volumeSlider;
-@synthesize iTunes;
 @synthesize albumTitleTextField;
 @synthesize artistNameTextField;
 @synthesize artworkImageView;
 @synthesize authWindow;
-@synthesize tweetWindow;
+@synthesize iTunes;
+@synthesize musicSegmentedControl;
+@synthesize notificationCenter;
+@synthesize positionSlider;
+@synthesize repeatSegmentedControl;
+@synthesize shuffleSegmentedControl;
 @synthesize tweetEditField;
-@dynamic appDelegate;
+@synthesize tweetWindow;
+@synthesize volumeSlider;
 
 
 #pragma mark -
@@ -69,6 +71,18 @@
 
 - (void)awakeFromNib {
   [self updateViewsWhenStateChange];
+
+  notificationCenter = [NSNotificationCenter defaultCenter];
+  [notificationCenter addObserver:self selector:@selector(updateVolumeSlider)
+		      name:kiTunesVolumeChanged object:nil];
+  [notificationCenter addObserver:self selector:@selector(updateRepeatSegmentControl)
+		      name:kiTunesRepeatModeChanged object:nil];
+  [notificationCenter addObserver:self selector:@selector(updateShuffleSegmentControl)
+		      name:kiTunesShuffleModeChanged object:nil];
+
+  watcher = [[MusicPlayerStateWatcher alloc] init];
+  [watcher performSelectorInBackground:@selector(startWatching:)
+	withObject:self];
 }
 
 #pragma mark
@@ -164,22 +178,12 @@
 
   iTunesPlaylist *playlist = [iTunes currentPlaylist];
   iTunesERpt currentRepeatMode = [playlist songRepeat];
-
-  switch(currentRepeatMode) {
-  case iTunesERptOff:
-    repeatSegmentedControl.selectedSegment = 0;
-    break;
-  case iTunesERptOne:
-    repeatSegmentedControl.selectedSegment = 1;
-    break;    
-  case iTunesERptAll:
-    repeatSegmentedControl.selectedSegment = 2;
-    break;        
-  }
+  repeatSegmentedControl.selectedSegment = currentRepeatMode;
 }
 
 - (void)updateVolumeSlider {
   [volumeSlider setDoubleValue:(double)iTunes.soundVolume];
+  NSLog(@"updated volume");
 }
 
 - (void)updatePositionSlider {

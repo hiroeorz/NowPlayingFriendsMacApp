@@ -21,16 +21,18 @@
 #define kSelectYouTubeTypeSelectFromList 1
 #define kSelectYouTubeTypeConfirmation 2
 
-
 @class iTunesApplication;
 @class NowPlayingFriendsMacAppAppDelegate;
 @class TwitterSendController;
+@class MusicPlayerStateWatcher;
 
 
 @interface MusicPlayerController : NSObject {
 @private
+  MusicPlayerStateWatcher *watcher;
   NSButton *albumSelectButton;
   NSImageView *artworkImageView;
+  NSNotificationCenter *notificationCenter;
   NSSegmentedControl *musicSegmentedControl;
   NSSegmentedControl *repeatSegmentedControl;
   NSSegmentedControl *shuffleSegmentedControl;
@@ -46,6 +48,7 @@
 
 @property (assign) IBOutlet NSWindow *authWindow;
 @property (assign) IBOutlet NSWindow *tweetWindow;
+@property (nonatomic, retain)  MusicPlayerStateWatcher *watcher;
 @property (nonatomic, retain) IBOutlet NSButton *albumSelectButton;
 @property (nonatomic, retain) IBOutlet NSImageView *artworkImageView;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl *musicSegmentedControl;
@@ -55,9 +58,10 @@
 @property (nonatomic, retain) IBOutlet NSSlider *volumeSlider;
 @property (nonatomic, retain) IBOutlet NSTextField *albumTitleTextField;
 @property (nonatomic, retain) IBOutlet NSTextField *artistNameTextField;
-@property (nonatomic, retain) iTunesApplication *iTunes;
-@property (nonatomic, retain, readonly) NowPlayingFriendsMacAppAppDelegate *appDelegate;
 @property (nonatomic, retain) IBOutlet NSTextField *tweetEditField;
+@property (nonatomic, retain) iTunesApplication *iTunes;
+@property (nonatomic, retain, readonly) NSNotificationCenter *notificationCenter;
+@property (nonatomic, retain, readonly) NowPlayingFriendsMacAppAppDelegate *appDelegate;
 
 
 

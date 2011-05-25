@@ -57,6 +57,7 @@
 		54C6E925138C02280064D5F4 /* TwitterClient+NowPlaying.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E924138C02280064D5F4 /* TwitterClient+NowPlaying.m */; };
 		54C6E928138C05D60064D5F4 /* YouTubeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E927138C05D50064D5F4 /* YouTubeClient.m */; };
 		54C6E92C138C0EA90064D5F4 /* ITunesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E92B138C0EA90064D5F4 /* ITunesStore.m */; };
+		54C6E92F138CA03B0064D5F4 /* MusicPlayerStateWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E92E138CA03B0064D5F4 /* MusicPlayerStateWatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,8 @@
 		54C6E929138C0E8E0064D5F4 /* Bitly+APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bitly+APIKey.h"; sourceTree = "<group>"; };
 		54C6E92A138C0E9F0064D5F4 /* ITunesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITunesStore.h; sourceTree = "<group>"; };
 		54C6E92B138C0EA90064D5F4 /* ITunesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITunesStore.m; sourceTree = "<group>"; };
+		54C6E92D138CA03A0064D5F4 /* MusicPlayerStateWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPlayerStateWatcher.h; sourceTree = "<group>"; };
+		54C6E92E138CA03B0064D5F4 /* MusicPlayerStateWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerStateWatcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +338,8 @@
 				54C6E866138B4E020064D5F4 /* TwitterAuthenticateController.m */,
 				54C6E872138BC1750064D5F4 /* NowPlayingFriendsApplication.h */,
 				54C6E873138BC1750064D5F4 /* NowPlayingFriendsApplication.m */,
+				54C6E92D138CA03A0064D5F4 /* MusicPlayerStateWatcher.h */,
+				54C6E92E138CA03B0064D5F4 /* MusicPlayerStateWatcher.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -565,6 +570,7 @@
 				54C6E925138C02280064D5F4 /* TwitterClient+NowPlaying.m in Sources */,
 				54C6E928138C05D60064D5F4 /* YouTubeClient.m in Sources */,
 				54C6E92C138C0EA90064D5F4 /* ITunesStore.m in Sources */,
+				54C6E92F138CA03B0064D5F4 /* MusicPlayerStateWatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
