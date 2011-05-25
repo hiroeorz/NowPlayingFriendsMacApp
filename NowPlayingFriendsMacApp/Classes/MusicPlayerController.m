@@ -6,9 +6,12 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "iTunes.h"
 #import "MusicPlayerController.h"
+
 #import "../NowPlayingFriendsMacAppAppDelegate.h"
+#import "MusicPlayerStateWatcher.h"
+#import "TwitterClient.h"
+#import "iTunes.h"
 
 
 #define kBackTrack 0
@@ -28,17 +31,22 @@
 
 @implementation MusicPlayerController
 
+@dynamic appDelegate;
 @synthesize albumSelectButton;
-@synthesize musicSegmentedControl;
-@synthesize positionSlider;
-@synthesize repeatSegmentedControl;
-@synthesize shuffleSegmentedControl;
-@synthesize volumeSlider;
-@synthesize iTunes;
 @synthesize albumTitleTextField;
 @synthesize artistNameTextField;
 @synthesize artworkImageView;
-@dynamic appDelegate;
+@synthesize authWindow;
+@synthesize iTunes;
+@synthesize musicSegmentedControl;
+@synthesize notificationCenter;
+@synthesize positionSlider;
+@synthesize repeatSegmentedControl;
+@synthesize shuffleSegmentedControl;
+@synthesize tweetEditField;
+@synthesize tweetWindow;
+@synthesize volumeSlider;
+
 
 #pragma mark -
 #pragma Initializer
@@ -63,6 +71,18 @@
 
 - (void)awakeFromNib {
   [self updateViewsWhenStateChange];
+
+  notificationCenter = [NSNotificationCenter defaultCenter];
+  [notificationCenter addObserver:self selector:@selector(updateVolumeSlider)
+		      name:kiTunesVolumeChanged object:nil];
+  [notificationCenter addObserver:self selector:@selector(updateRepeatSegmentControl)
+		      name:kiTunesRepeatModeChanged object:nil];
+  [notificationCenter addObserver:self selector:@selector(updateShuffleSegmentControl)
+		      name:kiTunesShuffleModeChanged object:nil];
+
+  watcher = [[MusicPlayerStateWatcher alloc] init];
+  [watcher performSelectorInBackground:@selector(startWatching:)
+	withObject:self];
 }
 
 #pragma mark
@@ -158,22 +178,12 @@
 
   iTunesPlaylist *playlist = [iTunes currentPlaylist];
   iTunesERpt currentRepeatMode = [playlist songRepeat];
-
-  switch(currentRepeatMode) {
-  case iTunesERptOff:
-    repeatSegmentedControl.selectedSegment = 0;
-    break;
-  case iTunesERptOne:
-    repeatSegmentedControl.selectedSegment = 1;
-    break;    
-  case iTunesERptAll:
-    repeatSegmentedControl.selectedSegment = 2;
-    break;        
-  }
+  repeatSegmentedControl.selectedSegment = currentRepeatMode;
 }
 
 - (void)updateVolumeSlider {
   [volumeSlider setDoubleValue:(double)iTunes.soundVolume];
+  NSLog(@"updated volume");
 }
 
 - (void)updatePositionSlider {
@@ -256,6 +266,7 @@
 #pragma mark
 #pragma Toolbar Delegate Methods
 
+
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar*)toolbar {
   return [NSArray arrayWithObjects:@"Tweet", nil];
 }
@@ -263,7 +274,6 @@
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar*)toolbar {
   return [NSArray arrayWithObjects:@"Tweet", nil];
 }
-
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar 
      itemForItemIdentifier:(NSString *)itemIdentifier 
@@ -274,15 +284,28 @@
  
  if ([itemIdentifier isEqual:@"Tweet"]) {
   [toolbarItem setLabel:@"Tweet"];
-  [toolbarItem setImage:[NSImage imageNamed:@"hello"]];
+  [toolbarItem setImage:[NSImage imageNamed:@"twitter_newbird_white.png"]];
   
   [toolbarItem setTarget:self];
-  [toolbarItem setAction:@selector(hello:)];
+  [toolbarItem setAction:@selector(openTweetWindow:)];
 
  } else {
   toolbarItem = nil;
  }
  return toolbarItem;
+}
+
+- (void)openTweetWindow:(id)sender {
+  NSLog(@"open Tweet window: %@", tweetWindow);
+
+  TwitterClient *client = [[TwitterClient alloc] init];
+  
+  if ([client oAuthTokenExist]) {
+    [tweetEditField setStringValue:[client tweetString:iTunes]];
+    [tweetWindow makeKeyAndOrderFront:self];
+  } else {
+    [authWindow makeKeyAndOrderFront:self];    
+  }
 }
 
 @end
