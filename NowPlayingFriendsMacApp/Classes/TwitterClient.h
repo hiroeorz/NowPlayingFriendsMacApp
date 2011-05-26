@@ -51,4 +51,6 @@
 
 - (id)authenticatedRequest:(NSURL *)url;
 
+- (NSArray *)getSearchTimeLine:(NSString *)searchString, ...;
+
 @end

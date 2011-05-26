@@ -12,8 +12,10 @@
 @interface TwitterSendController : NSObject {
 @private
   NSTextField *tweetEditField;
+  NSWindow *tweetWindow;
 }
 
+@property (assign) IBOutlet NSWindow *tweetWindow;
 @property (nonatomic, retain) IBOutlet NSTextField *tweetEditField;
 
 

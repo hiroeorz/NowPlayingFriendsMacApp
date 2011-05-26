@@ -18,12 +18,14 @@
 @interface TwitterSendController (Local)
 - (void)ticket:(OAServiceTicket *)ticket didFinishWithData:(NSData *)data;
 - (void)ticket:(OAServiceTicket *)ticket didFailWithError:(NSError *)error;
+- (void)closeTweetWindow;
 @end
 
 
 @implementation TwitterSendController
 
 @synthesize tweetEditField;
+@synthesize tweetWindow;
 
 - (id)init
 {
@@ -84,6 +86,10 @@
   }
 }
 
+- (void)closeTweetWindow {
+  [tweetWindow resignMainWindow];
+}
+
 #pragma mark
 #pragma iTunesStore Link Methods
 
@@ -119,12 +125,13 @@
   NSLog(@"didFinishWithData");
   NSString *dataString = [[NSString alloc] 
 			   initWithData:data encoding:NSUTF8StringEncoding];
-
+  [self closeTweetWindow];
   NSLog(@"data: %@", dataString);
 }
 
 - (void)ticket:(OAServiceTicket *)ticket didFailWithError:(NSError *)error {
   NSLog(@"didFailWithError");
+  [self closeTweetWindow];
 }
 
 @end

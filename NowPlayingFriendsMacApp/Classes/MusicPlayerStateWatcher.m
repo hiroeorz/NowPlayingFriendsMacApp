@@ -16,6 +16,7 @@
 
 
 @interface MusicPlayerStateWatcher (Local) 
+- (void)checkPlayStateChanged:(MusicPlayerController *)musicPlayer;
 - (void)checkTrackChanged:(MusicPlayerController *)musicPlayer;
 - (void)checkVolumeChanged:(MusicPlayerController *)musicPlayer;
 - (void)checkRepeatModeChanged:(MusicPlayerController *)musicPlayer;
@@ -29,6 +30,7 @@
 @synthesize notificationCenter;
 @synthesize volumeNotification;
 @synthesize repeatModeNotification;
+@synthesize shuffleModeNotification;
 @synthesize positionNotification;
 @synthesize trackChnangedNotification;
 @synthesize playStateChangedNotification;
@@ -103,7 +105,7 @@
 
 - (void)checkTrackChanged:(MusicPlayerController *)musicPlayer {
   
-  NSInteger *newTrackId = musicPlayer.iTunes.currentTrack.databaseID;
+  NSInteger newTrackId = musicPlayer.iTunes.currentTrack.databaseID;
 
   if (newTrackId != trackId) {
     trackId = newTrackId;
@@ -144,7 +146,7 @@
 
 - (void)checkPositionChanged:(MusicPlayerController *)musicPlayer {
   
-  NSInteger *newPosition = [musicPlayer.iTunes playerPosition];
+  NSInteger newPosition = [musicPlayer.iTunes playerPosition];
 
   if (newPosition != position) {
     position = newPosition;

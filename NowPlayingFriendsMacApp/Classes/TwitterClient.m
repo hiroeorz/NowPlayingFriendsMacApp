@@ -19,6 +19,13 @@
 #define kTokenFilePath [NSHomeDirectory() stringByAppendingPathComponent:@".now_playinf_friends.token"];
 
 
+@interface TwitterClient (Local)
+- (NSArray *)arrayOfRemoteJson:(NSString *)urlString;
+- (NSDictionary *)dictionaryOfRemoteJson:(NSString *)urlString;
+- (NSString *)stringOfRemoteJson:(NSString *)urlString;
+- (NSString *)urlEncodedString:(NSString *)str;
+@end
+
 @implementation TwitterClient
 
 - (id)init
@@ -183,6 +190,114 @@
   [request setHTTPMethod:@"POST"];
 
   return request;
+}
+
+#pragma mark
+#pragma Search Methods
+
+- (NSArray *)getSearchTimeLine:(NSString *)searchString, ... {
+
+  NSString *eachObject = nil;
+  va_list argumentList;
+  NSMutableString *urlString = nil;
+  NSString *encodedString = nil;
+
+  if (searchString) {
+    encodedString = [self urlEncodedString:searchString];
+    urlString = [[NSMutableString alloc] 
+		  initWithFormat:kSearchURL, encodedString];
+    
+    va_start(argumentList, searchString);
+    
+    while(eachObject = va_arg(argumentList, id)) {
+      encodedString = [self urlEncodedString:eachObject];
+      [urlString appendString:@"+"];
+      [urlString appendString:encodedString];
+    }    
+    va_end(argumentList);
+  }
+
+  NSURL *url = [NSURL URLWithString:urlString];
+  [urlString release];
+
+  NSString *jsonString = [[NSString alloc] initWithContentsOfURL:url
+					   encoding:NSUTF8StringEncoding
+					   error:nil];
+
+  NSDictionary *jsonDictionary = [jsonString JSONValue];
+  NSArray *jsonArray = [jsonDictionary objectForKey:@"results"];
+  [jsonString release];
+
+  return jsonArray;
+}
+
+#pragma mark
+#pragma Parse Methods
+
+/**
+ * @brief 渡されたURL文字列からJSONデータを取得しArrayにパースして返します。
+ */
+- (NSArray *)arrayOfRemoteJson:(NSString *)urlString {
+
+  NSString *jsonString = [self stringOfRemoteJson:urlString];
+  NSArray *jsonArray = [jsonString JSONValue];
+  
+  if ([jsonArray isKindOfClass:[NSDictionary class]]) {
+    NSLog(@"invalid data received: &@", jsonArray);
+    return [NSArray array];
+  }
+
+  return jsonArray;
+}
+
+/**
+ * @brief 渡されたURL文字列からJSONデータを取得しNSDictionaryにパースして返します。
+ */
+- (NSDictionary *)dictionaryOfRemoteJson:(NSString *)urlString {
+
+  NSString *jsonString = [self stringOfRemoteJson:urlString];
+  NSDictionary *jsonDictionary = [jsonString JSONValue];
+  
+  return jsonDictionary;
+}
+
+/**
+ * @brief 渡されたURLから得られたJSON文字列を返します。
+ */
+- (NSString *)stringOfRemoteJson:(NSString *)urlString {
+
+  OAMutableURLRequest *request = 
+    [self authenticatedRequest:[NSURL URLWithString:urlString]];
+  [request setHTTPMethod:@"GET"];
+  [request prepare];
+
+  NSURLResponse *response;
+  NSError *error;
+  NSData *data = [NSURLConnection sendSynchronousRequest:request
+				  returningResponse:&response
+				  error:&error];
+
+  NSString *jsonString = [[NSString alloc] initWithData:data
+					   encoding:NSUTF8StringEncoding];  
+  return [jsonString autorelease];
+}
+
+#pragma mark
+#pragma Local Methods
+
+/**
+ * @brief URLエンコードされた文字列を返します。
+ */
+- (NSString *)urlEncodedString:(NSString *)str {
+  
+  CFStringRef ignoreString = CFSTR(";,/?:@&=+$#");
+  NSString *encodedString = 
+    (NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,  
+							(CFStringRef)str,
+							NULL,  
+							ignoreString,
+							kCFStringEncodingUTF8);
+  return [encodedString autorelease];
 }
 
 @end
