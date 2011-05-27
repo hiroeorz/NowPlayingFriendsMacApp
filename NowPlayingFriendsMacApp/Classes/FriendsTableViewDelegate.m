@@ -43,7 +43,7 @@
     [friendsTableView tableColumnWithIdentifier:@"IconImageIdentifier"];
   [theColumn setDataCell:[[NSImageCell alloc] initImageCell:nil]];
 
-  [friendsTableView setRowHeight:50.0f];
+  [friendsTableView setRowHeight:60.0f];
 }
 
 #pragma mark
