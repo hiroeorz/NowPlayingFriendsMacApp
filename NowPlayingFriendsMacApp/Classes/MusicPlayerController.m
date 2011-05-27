@@ -44,6 +44,7 @@
 @synthesize tweetEditField;
 @synthesize tweetWindow;
 @synthesize volumeSlider;
+@synthesize watcher;
 
 
 #pragma mark -

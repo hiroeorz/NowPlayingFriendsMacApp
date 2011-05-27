@@ -59,6 +59,8 @@
 		54C6E92C138C0EA90064D5F4 /* ITunesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E92B138C0EA90064D5F4 /* ITunesStore.m */; };
 		54C6E92F138CA03B0064D5F4 /* MusicPlayerStateWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E92E138CA03B0064D5F4 /* MusicPlayerStateWatcher.m */; };
 		54C6E942138E7C4D0064D5F4 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E941138E7C4D0064D5F4 /* Util.m */; };
+		54C6E946138F3A530064D5F4 /* ImageGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E945138F3A520064D5F4 /* ImageGetter.m */; };
+		54C6E949138F43FD0064D5F4 /* FriendsGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E948138F43FC0064D5F4 /* FriendsGetter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +170,10 @@
 		54C6E92E138CA03B0064D5F4 /* MusicPlayerStateWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerStateWatcher.m; sourceTree = "<group>"; };
 		54C6E940138E7C4D0064D5F4 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		54C6E941138E7C4D0064D5F4 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		54C6E944138F3A510064D5F4 /* ImageGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGetter.h; sourceTree = "<group>"; };
+		54C6E945138F3A520064D5F4 /* ImageGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGetter.m; sourceTree = "<group>"; };
+		54C6E947138F43FC0064D5F4 /* FriendsGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsGetter.h; sourceTree = "<group>"; };
+		54C6E948138F43FC0064D5F4 /* FriendsGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsGetter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +351,10 @@
 				54C6E92E138CA03B0064D5F4 /* MusicPlayerStateWatcher.m */,
 				54C6E940138E7C4D0064D5F4 /* Util.h */,
 				54C6E941138E7C4D0064D5F4 /* Util.m */,
+				54C6E944138F3A510064D5F4 /* ImageGetter.h */,
+				54C6E945138F3A520064D5F4 /* ImageGetter.m */,
+				54C6E947138F43FC0064D5F4 /* FriendsGetter.h */,
+				54C6E948138F43FC0064D5F4 /* FriendsGetter.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -577,6 +587,8 @@
 				54C6E92C138C0EA90064D5F4 /* ITunesStore.m in Sources */,
 				54C6E92F138CA03B0064D5F4 /* MusicPlayerStateWatcher.m in Sources */,
 				54C6E942138E7C4D0064D5F4 /* Util.m in Sources */,
+				54C6E946138F3A530064D5F4 /* ImageGetter.m in Sources */,
+				54C6E949138F43FD0064D5F4 /* FriendsGetter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

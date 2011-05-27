@@ -11,6 +11,7 @@
 
 
 #define kTweetTemplate @"♪ #NowPlaying \"[st]\" by \"[ar]\" on album \"[al]\" ♬"
+#define kNowPlayingTags @"nowplaying OR nowlistening OR twitmusic OR BGM";
 
 
 @class iTunesApplication;

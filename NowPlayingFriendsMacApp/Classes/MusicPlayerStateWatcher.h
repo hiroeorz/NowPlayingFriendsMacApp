@@ -8,13 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "iTunes.h"
-
-#define kiTunesVolumeChanged @"iTunesVolumeChanged"
-#define kiTunesRepeatModeChanged @"iTunesRepeatModeChanged"
-#define kiTunesShuffleModeChanged @"iTunesShuffleModeChanged"
-#define kiTunesPositionChanged @"iTunesPositionChanged"
-#define kiTunesTrackChanged @"iTunesTrackChanged"
-#define kiTunesPlayStateChanged @"iTunesPlayStateChanged"
+#import "iTunesStatuses.h"
 
 
 @class MusicPlayerController;

@@ -10,22 +10,20 @@
 
 #import "Util.h"
 #import "TwitterClient.h"
+#import "iTunes.h"
+#import "FriendsGetter.h"
 
 
 @implementation NowPlayingFriendsMacAppAppDelegate
 
 @synthesize window;
+@synthesize friendsGetter;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 
-  NSPanel *panel = [Util createUserPanelWithPositionX:2.0f positionY:2.0f
-			 width:320.0f height:100.0f
-			 alpha:0.85f];
-  [panel orderFront:self];
-
-  TwitterClient *client = [[TwitterClient alloc] init];
-  NSArray *searchResult = [client getSearchTimeLine:@"ELLEGARDEN", nil];
-  NSLog(@"searchResult: %@", searchResult);
+  self.friendsGetter = [[FriendsGetter alloc] init];
+  [friendsGetter setNotification];
+  [friendsGetter getSongTimelineWhenTrackChanged];
 }
 
 @end

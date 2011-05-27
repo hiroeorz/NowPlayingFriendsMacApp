@@ -10,13 +10,18 @@
 #import "Classes/iTunes.h"
 
 
+@class FriendsGetter;
+
+
 @interface NowPlayingFriendsMacAppAppDelegate : 
   NSObject <NSApplicationDelegate> {
 
 @private
   NSWindow *window;
+  FriendsGetter *friendsGetter;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) FriendsGetter *friendsGetter;
 
 @end

@@ -7,16 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "iTunes.h"
 
 
 @interface Util : NSObject {
 @private
-    
+  iTunesApplication *iTunes;
 }
 
-+ (NSPanel *)createUserPanelWithPositionX:(float)x positionY:(float)y
-				    width:(float)width height:(float)height
-				    alpha:(float)alpha;
+@property (nonatomic, retain) iTunesApplication *iTunes;
 
+
++ (iTunesTrack *)getCurrentTrack;
 
 @end
