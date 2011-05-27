@@ -61,6 +61,7 @@
 		54C6E942138E7C4D0064D5F4 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E941138E7C4D0064D5F4 /* Util.m */; };
 		54C6E946138F3A530064D5F4 /* ImageGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E945138F3A520064D5F4 /* ImageGetter.m */; };
 		54C6E949138F43FD0064D5F4 /* FriendsGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E948138F43FC0064D5F4 /* FriendsGetter.m */; };
+		54C6E94F138FE06F0064D5F4 /* FriendsTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,8 @@
 		54C6E945138F3A520064D5F4 /* ImageGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGetter.m; sourceTree = "<group>"; };
 		54C6E947138F43FC0064D5F4 /* FriendsGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsGetter.h; sourceTree = "<group>"; };
 		54C6E948138F43FC0064D5F4 /* FriendsGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsGetter.m; sourceTree = "<group>"; };
+		54C6E94D138FE06D0064D5F4 /* FriendsTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewDelegate.h; sourceTree = "<group>"; };
+		54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +358,8 @@
 				54C6E945138F3A520064D5F4 /* ImageGetter.m */,
 				54C6E947138F43FC0064D5F4 /* FriendsGetter.h */,
 				54C6E948138F43FC0064D5F4 /* FriendsGetter.m */,
+				54C6E94D138FE06D0064D5F4 /* FriendsTableViewDelegate.h */,
+				54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				54C6E942138E7C4D0064D5F4 /* Util.m in Sources */,
 				54C6E946138F3A530064D5F4 /* ImageGetter.m in Sources */,
 				54C6E949138F43FD0064D5F4 /* FriendsGetter.m in Sources */,
+				54C6E94F138FE06F0064D5F4 /* FriendsTableViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
