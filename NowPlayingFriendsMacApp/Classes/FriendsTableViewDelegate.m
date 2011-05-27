@@ -37,6 +37,15 @@
   [super dealloc];
 }
 
+- (void)awakeFromNib {
+ 
+  NSTableColumn* theColumn =
+    [friendsTableView tableColumnWithIdentifier:@"IconImageIdentifier"];
+  [theColumn setDataCell:[[NSImageCell alloc] initImageCell:nil]];
+
+  [friendsTableView setRowHeight:50.0f];
+}
+
 #pragma mark
 
 - (void)refreshTable {
@@ -70,6 +79,11 @@
   if ([[aTableColumn identifier] isEqualToString:@"TweetTextIdentifier"]) {
     NSString *tweetText = [tweet objectForKey:@"text"];
     return tweetText;
+  } else if ([[aTableColumn identifier] isEqualToString:@"IconImageIdentifier"]) {
+    NSString *iconURLStr = [tweet objectForKey:@"profile_image_url"];
+    NSURL *iconURL = [[NSURL alloc] initWithString:iconURLStr];
+    NSImage *iconImage = [[NSImage alloc] initWithContentsOfURL:iconURL];
+    return iconImage;
   }
 
   return @"";
