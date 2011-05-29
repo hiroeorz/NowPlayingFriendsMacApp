@@ -19,5 +19,13 @@
 
 
 + (iTunesTrack *)getCurrentTrack;
++ (void)sleep:(float)sec;
++ (iTunesApplication *)iTunes;
++ (BOOL)iTunesIsPlaying;
+
++ (float)heightForString:(NSString *)myString 
+		    font:(NSFont *)myFont
+		   width:(float)myWidth;
+
 
 @end

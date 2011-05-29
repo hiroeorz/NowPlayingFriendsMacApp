@@ -14,6 +14,8 @@
 #import "iTunes.h"
 #import "iTunesStatuses.h"
 
+#define kNowPlayingTimeInterVal -60.0f * 60 * 24 * 3
+
 
 @interface FriendsGetter (Local)
 - (void)getSongTimelineWhenTrackChangedDetail;
@@ -60,7 +62,7 @@
   [self performSelectorOnMainThread:
 	  @selector(getSongTimelineWhenTrackChangedDetail)
 	withObject:nil
-	waitUntilDone:YES];
+	waitUntilDone:NO];
 }
 
 /*
@@ -81,12 +83,28 @@
 
   if ([searchResult count] > 0) {
     NSDictionary *tweet = [searchResult objectAtIndex:0];
-    
-    self.panel = [self createUserPanelWithPositionX:2.0f positionY:2.0f
-		       width:340.0f height:100.0f
-		       alpha:0.85f
-		       tweet:tweet];
-    [panel orderFront:self];
+    NSLog(@"tweet:\n%@", tweet);
+
+    float nowInterval = kNowPlayingTimeInterVal;
+
+    NSDate *nowDate = [[NSDate alloc] init];
+    NSDate *tweetDate = [NSDate dateWithNaturalLanguageString:
+				  [tweet objectForKey:@"created_at"]];
+    NSDate *nowRangeEnd = [[NSDate alloc] initWithTimeInterval:nowInterval
+					  sinceDate:nowDate];
+
+    NSLog(@"tweetDate:%@ endDate%@", tweetDate, nowRangeEnd);
+
+    if ([nowRangeEnd compare:tweetDate] !=  NSOrderedDescending) {
+      self.panel = [self createUserPanelWithPositionX:2.0f positionY:2.0f
+			 width:340.0f height:100.0f
+			 alpha:0.85f
+			 tweet:tweet];
+      [panel orderFront:self];
+    } else {
+      if (panel != nil) { [panel close]; self.panel = nil; }
+    }
+
   } else {
     NSLog(@"search result is not exist.");
     if (panel != nil) { [panel close]; self.panel = nil; }

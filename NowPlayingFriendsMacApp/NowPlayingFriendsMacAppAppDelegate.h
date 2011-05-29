@@ -11,6 +11,7 @@
 
 
 @class FriendsGetter;
+@class AutoTweetController;
 
 
 @interface NowPlayingFriendsMacAppAppDelegate : 
@@ -19,9 +20,11 @@
 @private
   NSWindow *window;
   FriendsGetter *friendsGetter;
+  AutoTweetController *autoTweetController;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, retain) AutoTweetController *autoTweetController;
 @property (nonatomic, retain) FriendsGetter *friendsGetter;
 
 @end

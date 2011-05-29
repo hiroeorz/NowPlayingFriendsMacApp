@@ -62,6 +62,8 @@
 		54C6E946138F3A530064D5F4 /* ImageGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E945138F3A520064D5F4 /* ImageGetter.m */; };
 		54C6E949138F43FD0064D5F4 /* FriendsGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E948138F43FC0064D5F4 /* FriendsGetter.m */; };
 		54C6E94F138FE06F0064D5F4 /* FriendsTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */; };
+		54C6E952139212820064D5F4 /* AutoTweetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E951139212810064D5F4 /* AutoTweetController.m */; };
+		54C6E9551392460E0064D5F4 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 54C6E954139246080064D5F4 /* FriendCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,10 @@
 		54C6E948138F43FC0064D5F4 /* FriendsGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsGetter.m; sourceTree = "<group>"; };
 		54C6E94D138FE06D0064D5F4 /* FriendsTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsTableViewDelegate.h; sourceTree = "<group>"; };
 		54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsTableViewDelegate.m; sourceTree = "<group>"; };
+		54C6E9501392127F0064D5F4 /* AutoTweetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoTweetController.h; sourceTree = "<group>"; };
+		54C6E951139212810064D5F4 /* AutoTweetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoTweetController.m; sourceTree = "<group>"; };
+		54C6E953139246060064D5F4 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		54C6E954139246080064D5F4 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +366,10 @@
 				54C6E948138F43FC0064D5F4 /* FriendsGetter.m */,
 				54C6E94D138FE06D0064D5F4 /* FriendsTableViewDelegate.h */,
 				54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */,
+				54C6E9501392127F0064D5F4 /* AutoTweetController.h */,
+				54C6E951139212810064D5F4 /* AutoTweetController.m */,
+				54C6E953139246060064D5F4 /* FriendCell.h */,
+				54C6E954139246080064D5F4 /* FriendCell.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -595,6 +605,8 @@
 				54C6E946138F3A530064D5F4 /* ImageGetter.m in Sources */,
 				54C6E949138F43FD0064D5F4 /* FriendsGetter.m in Sources */,
 				54C6E94F138FE06F0064D5F4 /* FriendsTableViewDelegate.m in Sources */,
+				54C6E952139212820064D5F4 /* AutoTweetController.m in Sources */,
+				54C6E9551392460E0064D5F4 /* FriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

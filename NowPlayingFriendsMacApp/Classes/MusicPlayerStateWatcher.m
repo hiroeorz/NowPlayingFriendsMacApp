@@ -9,6 +9,7 @@
 #import "MusicPlayerStateWatcher.h"
 
 #import "MusicPlayerController.h"
+#import "Util.h"
 #import "iTunes.h"
 
 
@@ -87,7 +88,7 @@
     [self checkPositionChanged:musicPlayer];
 
     float checkInterval = kMusicPlayerStateWatchInterval;
-    [self sleep:checkInterval];
+    [Util sleep:checkInterval];
     [pool release];
   }
 
@@ -152,15 +153,6 @@
     position = newPosition;
     [notificationCenter postNotification:positionNotification];
   }
-}
-
-- (void)sleep:(float)sec {
-
-  NSDate *date = [[NSDate alloc] init];
-  NSDate *nextStartDate = [[NSDate alloc] initWithTimeInterval:sec 
-					  sinceDate:date];
-  [NSThread sleepUntilDate: nextStartDate];
-
 }
 
 @end
