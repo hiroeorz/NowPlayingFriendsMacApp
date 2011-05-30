@@ -17,7 +17,6 @@
 
 @interface FriendsTableViewDelegate (Local)
 - (void)setImageCellAttributes;
-- (void)setTweetCellAttributes;
 @end
 
 
@@ -53,7 +52,6 @@
 - (void)awakeFromNib {
   [friendsTableView setRowHeight:kFriendCellRowHeight];
   [self setImageCellAttributes];
-  [self setTweetCellAttributes];
 }
 
 #pragma mark
@@ -94,10 +92,10 @@
 
   NSDictionary *tweet = [tweets objectAtIndex:rowIndex];
 
-  if ([[aTableColumn identifier] isEqualToString:@"TweetTextIdentifier"]) {
-    
+  if ([[aTableColumn identifier] isEqualToString:@"TweetTextIdentifier"]) {  
     FriendCell *cell = [[FriendCell alloc] initWithTweet:tweet];
-    //[cell setTwitterInformations];
+    [aTableColumn setDataCell:cell];
+
     return cell;
 
   } else if ([[aTableColumn identifier] isEqualToString:@"IconImageIdentifier"]) {
@@ -124,7 +122,7 @@
 		       width:249.0f];
 
   float namePateHeight = 20.0f;
-  height = height + namePateHeight + 6.0f;
+  height = height + namePateHeight + 10.0f;
 
   float imageHeight = kFriendCellRowHeight;
   return (height <= imageHeight) ? imageHeight : height;
@@ -151,18 +149,5 @@
   [imageColumn setDataCell:imageCell];
 
 }
-
-/*
- * @brief ツイッター本文表示用セルの設定。
- */
-- (void)setTweetCellAttributes {
-
-  NSTableColumn* tweetColumn =
-    [friendsTableView tableColumnWithIdentifier:@"TweetTextIdentifier"];
-
-  FriendCell *friendCell = [[FriendCell alloc] init];
-  [tweetColumn setDataCell:friendCell];
-}
-
 
 @end

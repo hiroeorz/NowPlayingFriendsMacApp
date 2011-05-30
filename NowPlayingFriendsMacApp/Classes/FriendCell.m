@@ -11,11 +11,15 @@
 #import "Util.h"
 
 
+@interface FriendCell (Local)
+- (void)setTweetFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView;
+- (void)setNameFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView;
+@end
+
+
 @implementation FriendCell
 
 @synthesize tweet;
-@synthesize fromUser;
-
 
 - (void)dealloc {
   [super dealloc];
@@ -24,81 +28,43 @@
 - (id)initWithTweet:(NSDictionary *)aTweet {
 
   self = [super init];
-
-  if (self != nil) {
-    self.tweet = [aTweet retain];
-    self.fromUser = [tweet objectForKey:@"from_user"];
-    [self setStringValue:[tweet objectForKey:@"text"]];
-  }
-
+  if (self != nil) { tweet = aTweet; }
   return self;
 }
 
-/*
-- (id)copyWithZone:(NSZone*)zone {
-
-  FriendCell *newCell = [[[self class] allocWithZone:zone] init];
+/**
+ * @brief セルの内容の描画時に呼ばれる。
+ */
+- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView*)controlView {
   
-  newCell.tweet = self.tweet;
-  newCell.fromUser = self.fromUser;
-  [newCell setStringValue:[self stringValue]];
-
-  return newCell;
+  [self setTweetFieldForFrame:cellFrame inView:controlView];
+  [self setNameFieldForFrame:cellFrame inView:controlView];
+  [super drawInteriorWithFrame:cellFrame inView:controlView];
 }
-*/
 
-- (void)setTwitterInformations {
+/**
+ * @brief セルにツイート本文のフィールドをセットする。
+ */
+- (void)setTweetFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView {
 
-  NSString *tweetText = [self stringValue];
-  NSFont *font = [NSFont systemFontOfSize:11];
-
-  float x = myCellFrame.origin.x;
-  float y = myCellFrame.origin.y;
-  float height = [Util heightForString:tweetText
-		       font:font
-		       width:249.0f];
-
+  NSString *tweetText = [tweet objectForKey:@"text"];
   NSTextField *tweetField = [[NSTextField alloc] 
-			      initWithFrame:myCellFrame];
+			      initWithFrame:cellFrame];
 
   tweetField.backgroundColor = [NSColor blackColor];
   [tweetField setEditable:NO];
   [tweetField setBordered:NO];
   [tweetField setStringValue:tweetText];
-
-  //[myControlView addSubview:tweetField];
-
-  NSTextField *nameField = [[NSTextField alloc] 
-			     initWithFrame:
-			       NSMakeRect(x + 20.0f, 
-					  y + height + 5.0f,
-					  249.0f, 20.0f)];
-
-  nameField.backgroundColor = [NSColor blackColor];
-  [nameField setEditable:NO];
-  [nameField setBordered:NO];
-
-  if (tweet == nil) {
-    [nameField setStringValue:@""];
-  } else {
-    [nameField setStringValue:@"hiroe"];
-  }
-
-  [myControlView addSubview:nameField];
+  [controlView addSubview:tweetField];
 }
 
-- (void)drawWithFrame:(NSRect)myCellFrame inView:(NSView *)controlView {
-  myCellFrame = myCellFrame;
-  myControlView = controlView;
-  [super drawWithFrame:myCellFrame inView:controlView];
-}
+/**
+ * @brief セルに送信もとユーザ名のフィールドをセットする。
+ */
+- (void)setNameFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView {
 
-- (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView*)controlView {
-  NSLog(@"helo world2!: %@", tweet);
-  NSLog(@"tweet: %@", [tweet objectForKey:@"from_user"]);
-
-    
-  NSString *tweetText = [self stringValue];
+  NSString *tweetText = [tweet objectForKey:@"text"];
+  NSString *name = [tweet objectForKey:@"from_user"];
   NSFont *font = [NSFont systemFontOfSize:11];
 
   float x = cellFrame.origin.x;
@@ -107,35 +73,17 @@
 		       font:font
 		       width:249.0f];
 
-  NSTextField *tweetField = [[NSTextField alloc] 
-			      initWithFrame:cellFrame];
-
-  tweetField.backgroundColor = [NSColor blackColor];
-  [tweetField setEditable:NO];
-  [tweetField setBordered:NO];
-  [tweetField setStringValue:tweetText];
-
-  [controlView addSubview:tweetField];
-
   NSTextField *nameField = [[NSTextField alloc] 
 			     initWithFrame:
-			       NSMakeRect(x + 20.0f, 
+			       NSMakeRect(x + 1.0f, 
 					  y + height + 5.0f,
 					  249.0f, 20.0f)];
 
   nameField.backgroundColor = [NSColor blackColor];
   [nameField setEditable:NO];
   [nameField setBordered:NO];
-
-  if (tweet == nil) {
-    [nameField setStringValue:@""];
-  } else {
-    [nameField setStringValue:@"hiroe"];
-  }
-
+  [nameField setStringValue:((tweet == nil) ? @"" : name)];
   [controlView addSubview:nameField];
-  
-  //[super drawInteriorWithFrame:cellFrame inView:controlView];
 }
 
 @end

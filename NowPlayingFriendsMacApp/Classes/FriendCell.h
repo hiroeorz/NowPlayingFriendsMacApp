@@ -7,20 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
 
 
-@interface FriendCell : NSCell {
+@interface FriendCell : NSActionCell {
 @private
   NSDictionary *tweet;
-  NSString *fromUser;
-  NSRect myCellFrame;
-  NSView *myControlView;
 }
 
-@property (nonatomic, retain) NSDictionary *tweet;
-@property (nonatomic, retain) NSString *fromUser;
+
+@property (nonatomic, copy) NSDictionary *tweet;
 
 
-- (void)setTwitterInformations;
+- (id)initWithTweet:(NSDictionary *)aTweet;
 
 @end
