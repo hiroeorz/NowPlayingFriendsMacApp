@@ -208,11 +208,13 @@
 		  initWithFormat:kSearchURL, encodedString];
     
     va_start(argumentList, searchString);
-    
-    while(eachObject = va_arg(argumentList, id)) {
+    eachObject = va_arg(argumentList, id);
+
+    while(eachObject) {
       encodedString = [self urlEncodedString:eachObject];
       [urlString appendString:@"+"];
       [urlString appendString:encodedString];
+      eachObject = va_arg(argumentList, id);
     }    
     va_end(argumentList);
   }
@@ -243,7 +245,6 @@
   NSArray *jsonArray = [jsonString JSONValue];
   
   if ([jsonArray isKindOfClass:[NSDictionary class]]) {
-    NSLog(@"invalid data received: &@", jsonArray);
     return [NSArray array];
   }
 

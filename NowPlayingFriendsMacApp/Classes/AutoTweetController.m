@@ -85,7 +85,6 @@
   
   NSLog(@"starting auto tweet with YouTube link...");
   YouTubeClient *youTubeClient = [[YouTubeClient alloc] init];
-  iTunesApplication *iTunes = [Util iTunes];
   iTunesTrack *currentTrack = [Util getCurrentTrack];
 
   [youTubeClient searchWithTitle:[currentTrack name] 

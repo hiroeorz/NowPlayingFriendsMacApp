@@ -7,6 +7,7 @@
 //
 
 #import "Util.h"
+#import "FriendCell.h"
 
 
 @implementation Util

@@ -8,12 +8,13 @@
 
 #import "FriendCell.h"
 
+#import "ImageGetter.h"
 #import "Util.h"
 
 
 @interface FriendCell (Local)
 - (void)setTweetFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView;
-- (void)setNameFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView;
+- (void)setProfileImageForFrame:(NSRect)cellFrame inView:(NSView*)controlView;
 @end
 
 
@@ -38,8 +39,41 @@
 - (void)drawInteriorWithFrame:(NSRect)cellFrame inView:(NSView*)controlView {
   
   [self setTweetFieldForFrame:cellFrame inView:controlView];
-  [self setNameFieldForFrame:cellFrame inView:controlView];
-  [super drawInteriorWithFrame:cellFrame inView:controlView];
+  [self setProfileImageForFrame:cellFrame inView:controlView];
+}
+
+- (float)tweetFieldHeight:(NSString *)tweetText width:(float)width {
+
+  NSFont *font = [NSFont systemFontOfSize:11];
+  float imageSizeWithMargin = 
+    kProfileImageSize + kProfileImageMargin * 2.0f;
+
+  float tweetFieldWidth = width - imageSizeWithMargin;
+  float height = [Util heightForString:tweetText
+		       font:font
+		       width:tweetFieldWidth];
+
+  return height;
+}
+
+/**
+ * @brief セルにプロフィール画像をセットする。
+ */
+- (void)setProfileImageForFrame:(NSRect)cellFrame inView:(NSView*)controlView {
+
+  NSString *iconURL = [tweet objectForKey:@"profile_image_url"];
+  float x = cellFrame.origin.x;
+  float y = cellFrame.origin.y;
+
+  NSRect frame = NSMakeRect(x + kProfileImageMargin, 
+			    y + kProfileImageMargin,
+			    kProfileImageSize, 
+			    kProfileImageSize);
+
+  NSImageView *imageView = [[NSImageView alloc] initWithFrame:frame];
+  ImageGetter *getter = [[ImageGetter alloc] init];
+  [getter startDownloadingImage:iconURL toImageView:imageView];
+  [controlView addSubview:imageView];
 }
 
 /**
@@ -48,41 +82,42 @@
 - (void)setTweetFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView {
 
   NSString *tweetText = [tweet objectForKey:@"text"];
+  NSString *name = [tweet objectForKey:@"from_user"];
+
+  float imageSizeWithMargin = 
+    kProfileImageSize + kProfileImageMargin * 2.0f;
+
+  float x = cellFrame.origin.x;
+  float y = cellFrame.origin.y;
+  float tweetFieldWidth = cellFrame.size.width - imageSizeWithMargin;
+  float tweetFieldHeight = [self tweetFieldHeight:tweetText 
+				 width:tweetFieldWidth];
+
+  NSRect frame = NSMakeRect(x + imageSizeWithMargin,  y, 
+			    tweetFieldWidth, tweetFieldHeight);
+
   NSTextField *tweetField = [[NSTextField alloc] 
-			      initWithFrame:cellFrame];
+			      initWithFrame:frame];
 
   tweetField.backgroundColor = [NSColor blackColor];
   [tweetField setEditable:NO];
   [tweetField setBordered:NO];
   [tweetField setStringValue:tweetText];
-  [controlView addSubview:tweetField];
-}
 
-/**
- * @brief セルに送信もとユーザ名のフィールドをセットする。
- */
-- (void)setNameFieldForFrame:(NSRect)cellFrame inView:(NSView*)controlView {
-
-  NSString *tweetText = [tweet objectForKey:@"text"];
-  NSString *name = [tweet objectForKey:@"from_user"];
-  NSFont *font = [NSFont systemFontOfSize:11];
-
-  float x = cellFrame.origin.x;
-  float y = cellFrame.origin.y;
-  float height = [Util heightForString:tweetText
-		       font:font
-		       width:249.0f];
+  NSRect nameFieldFrame = NSMakeRect(x + imageSizeWithMargin, 
+				     y + tweetFieldHeight + 5.0f,
+				     tweetFieldWidth, 
+				     kNamePlateHeight);
 
   NSTextField *nameField = [[NSTextField alloc] 
-			     initWithFrame:
-			       NSMakeRect(x + 1.0f, 
-					  y + height + 5.0f,
-					  249.0f, 20.0f)];
+			     initWithFrame:nameFieldFrame];
 
   nameField.backgroundColor = [NSColor blackColor];
   [nameField setEditable:NO];
   [nameField setBordered:NO];
   [nameField setStringValue:((tweet == nil) ? @"" : name)];
+
+  [controlView addSubview:tweetField];
   [controlView addSubview:nameField];
 }
 

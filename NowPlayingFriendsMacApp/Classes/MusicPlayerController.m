@@ -11,6 +11,7 @@
 #import "../NowPlayingFriendsMacAppAppDelegate.h"
 #import "MusicPlayerStateWatcher.h"
 #import "TwitterClient.h"
+#import "TwitterClient+NowPlaying.h"
 #import "iTunes.h"
 
 

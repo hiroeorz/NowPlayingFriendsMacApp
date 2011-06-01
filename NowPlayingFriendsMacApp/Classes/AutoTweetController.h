@@ -20,6 +20,7 @@
 
 - (void)setNotification;
 - (void)sendAutoTweetAfterTimelag;
+- (void)sendAutoTweetWithYouTubeLink;
 - (void)sendAutoTweetWithYouTubeResult:(NSArray *)youTubeLinks;
 - (void)sendAutoTweetWithLinks:(NSArray *)addLinks;
 

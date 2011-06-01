@@ -12,8 +12,8 @@
 #import "FriendCell.h"
 
 
-#define kFriendCellRowHeight 60.0f
-
+#define kFriendCellRowHeight 35.0f
+#define kFriendFieldWidth 311.0f
 
 @interface FriendsTableViewDelegate (Local)
 - (void)setImageCellAttributes;
@@ -115,16 +115,16 @@
 
   NSDictionary *tweet = [tweets objectAtIndex:row];
   NSString *tweetText = [tweet objectForKey:@"text"];
-  NSFont *font = [NSFont systemFontOfSize:11];
 
-  float height = [Util heightForString:tweetText
-		       font:font
-		       width:249.0f];
+  float tweetFieldWidth = kFriendFieldWidth - 
+    (kProfileImageSize + kProfileImageMargin * 2);
 
-  float namePateHeight = 20.0f;
-  height = height + namePateHeight + 10.0f;
+  FriendCell *cell = [[FriendCell alloc] initWithTweet:tweet];
+  float tweetFieldHeight = [cell tweetFieldHeight:tweetText 
+				 width:tweetFieldWidth];
 
-  float imageHeight = kFriendCellRowHeight;
+  float height = tweetFieldHeight + kNamePlateHeight + 10.0f;
+  float imageHeight = kProfileImageSize + kProfileImageMargin * 2;
   return (height <= imageHeight) ? imageHeight : height;
 }
 
