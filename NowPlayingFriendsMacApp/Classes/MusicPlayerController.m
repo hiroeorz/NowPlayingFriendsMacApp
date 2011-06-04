@@ -10,8 +10,9 @@
 
 #import "../NowPlayingFriendsMacAppAppDelegate.h"
 #import "MusicPlayerStateWatcher.h"
-#import "TwitterClient.h"
 #import "TwitterClient+NowPlaying.h"
+#import "TwitterClient.h"
+#import "YouTubeClient.h"
 #import "iTunes.h"
 
 
@@ -26,6 +27,7 @@
 
 @interface MusicPlayerController (Local)
 - (NSInteger)songTimeOfTrack:(iTunesTrack *)track;
+- (void)addYouListToTableView:(NSArray *)searchResults;
 @end
 
 @implementation MusicPlayerController
@@ -46,7 +48,8 @@
 @synthesize tweetWindow;
 @synthesize volumeSlider;
 @synthesize watcher;
-
+@synthesize youtubeWindow;
+@synthesize youtubeTableView;
 
 #pragma mark -
 #pragma Initializer
@@ -172,9 +175,31 @@
   }
 }
 
+- (IBAction)openYouTubeList:(id)sender {
+
+  NSString *songTitle = [iTunes.currentTrack name];
+  NSString *artistName = [iTunes.currentTrack artist];
+
+  YouTubeClient *youTube = [[YouTubeClient alloc] init];
+
+  [youTube searchWithTitle:songTitle artist:artistName 
+	   delegate:self action:@selector(addYouListToTableView:)
+	   count:20];
+
+  [youtubeWindow makeKeyAndOrderFront:self];
+}
+
+- (void)addYouListToTableView:(NSArray *)searchResults {
+
+  if ([searchResults count] > 0) {
+    NSLog(@"YouTube: %@", searchResults);
+    [youtubeTableView.delegate refreshTable:searchResults];
+  } else {
+    NSLog(@"YouTube link is not exist.");
+  }
+}
 
 #pragma mark
-#pragma View Methods
 
 - (void)updateShuffleSegmentControl {
 
@@ -186,6 +211,8 @@
     shuffleSegmentedControl.selectedSegment = 0;
   }
 }
+
+#pragma mark
 
 - (void)updateRepeatSegmentControl {
 

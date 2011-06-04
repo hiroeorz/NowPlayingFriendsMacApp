@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		542AB93E139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png in Resources */ = {isa = PBXBuildFile; fileRef = 542AB93D139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png */; };
+		542AB941139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 542AB940139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m */; };
 		54305E661388C21500873C0B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54305E651388C21500873C0B /* Cocoa.framework */; };
 		54305E701388C21500873C0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54305E6E1388C21500873C0B /* InfoPlist.strings */; };
 		54305E731388C21500873C0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54305E721388C21500873C0B /* main.m */; };
@@ -77,6 +79,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		542AB93D139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cherryblossom-you-tube1-webtreats.png"; sourceTree = "<group>"; };
+		542AB93F139A2B2B00B5BCE2 /* YouTubeListTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeListTableViewDelegate.h; sourceTree = "<group>"; };
+		542AB940139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeListTableViewDelegate.m; sourceTree = "<group>"; };
 		54305E611388C21500873C0B /* NowPlayingFriendsMacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NowPlayingFriendsMacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54305E651388C21500873C0B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		54305E681388C21500873C0B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -207,6 +212,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		542AB8AD139A237E00B5BCE2 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				542AB93D139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
 		54305E561388C21500873C0B = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +316,7 @@
 		54305E9B1388C78500873C0B /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				542AB8AD139A237E00B5BCE2 /* services */,
 				54C6E876138BC55E0064D5F4 /* menuIcons */,
 				54305E9C1388C78500873C0B /* mediaIcons005 */,
 			);
@@ -370,6 +384,8 @@
 				54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */,
 				54C6E953139246060064D5F4 /* FriendCell.h */,
 				54C6E954139246080064D5F4 /* FriendCell.m */,
+				542AB93F139A2B2B00B5BCE2 /* YouTubeListTableViewDelegate.h */,
+				542AB940139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -536,6 +552,7 @@
 				54305EB21388EA3000873C0B /* friends2_wide305.png in Resources */,
 				54C6E878138BC55E0064D5F4 /* twitter_newbird_white.png in Resources */,
 				54C6E87A138BC6360064D5F4 /* twitter_newbird_blue.png in Resources */,
+				542AB93E139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,6 +624,7 @@
 				54C6E94F138FE06F0064D5F4 /* FriendsTableViewDelegate.m in Sources */,
 				54C6E952139212820064D5F4 /* AutoTweetController.m in Sources */,
 				54C6E9551392460E0064D5F4 /* FriendCell.m in Sources */,
+				542AB941139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -149,4 +149,35 @@
 
   return passedString;
 }
+
+/**
+ * @brief HTMLエスケープされた文字列を通常の文字列に戻した文字列を返す。
+ */
++ (NSString *)stringByUnescapedString:(NSString *)str {
+
+  NSDictionary *escapeDictionary = 
+    [[NSDictionary alloc] initWithObjectsAndKeys:
+			    @"\"", @"&quot;",
+			    @">", @"&gt;",
+			    @"<", @"&lt;",
+			    @"&", @"&amp;",
+			  nil];
+
+  NSString *newString = [[[NSString alloc] initWithString:str] autorelease];
+
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  for (NSString *key in [escapeDictionary keyEnumerator]) {
+    NSString *value = [escapeDictionary objectForKey:key];
+    newString = [newString stringByReplacingOccurrencesOfString:key
+			   withString:value];
+  }
+
+  NSString *replaced = [[NSString alloc] initWithString:newString];
+  [pool release];
+
+  [escapeDictionary release];
+  return [replaced autorelease];
+}
+
 @end

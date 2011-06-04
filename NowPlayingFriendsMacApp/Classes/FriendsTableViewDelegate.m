@@ -109,13 +109,19 @@
   return @"";
 }
 
+/**
+ * ツイートの本文に日付や送信元の情報を追加した文字列を返す。
+ */
 - (NSString *)tweetFieldTextBody:(NSInteger)row {
 
   NSDictionary *tweet = [tweets objectAtIndex:row];
+  NSString *unescapedBody = 
+    [Util stringByUnescapedString:[tweet objectForKey:@"text"]];
+
   NSString *passedTimeString = [Util passedTimeString:tweet];
 
   return [[NSString alloc] initWithFormat:@"%@\n\n %@  by  %@",
-			   [tweet objectForKey:@"text"],
+			   unescapedBody,
 			   passedTimeString,
 			   [tweet objectForKey:@"from_user"]];
 }

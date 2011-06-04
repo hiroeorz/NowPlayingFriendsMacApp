@@ -30,5 +30,6 @@
 + (NSDate *)tweetDate:(NSDictionary *)data;
 + (NSInteger)secondSinceNow:(NSDictionary *)data;
 + (NSString *)passedTimeString:(NSDictionary *)tweet;
++ (NSString *)stringByUnescapedString:(NSString *)str;
 
 @end

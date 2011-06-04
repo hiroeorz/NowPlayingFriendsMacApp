@@ -38,16 +38,19 @@
   NSSegmentedControl *shuffleSegmentedControl;
   NSSlider *positionSlider;
   NSSlider *volumeSlider;
+  NSTableView *youtubeTableView;
   NSTextField *albumTitleTextField;
   NSTextField *artistNameTextField;
   NSTextField *tweetEditField;
   NSWindow *authWindow;
   NSWindow *tweetWindow;
+  NSWindow *youtubeWindow;
   iTunesApplication *iTunes;
 }
 
 @property (assign) IBOutlet NSWindow *authWindow;
 @property (assign) IBOutlet NSWindow *tweetWindow;
+@property (assign) IBOutlet NSWindow *youtubeWindow;
 @property (nonatomic, retain)  MusicPlayerStateWatcher *watcher;
 @property (nonatomic, retain) IBOutlet NSButton *albumSelectButton;
 @property (nonatomic, retain) IBOutlet NSImageView *artworkImageView;
@@ -56,13 +59,13 @@
 @property (nonatomic, retain) IBOutlet NSSegmentedControl *shuffleSegmentedControl;
 @property (nonatomic, retain) IBOutlet NSSlider *positionSlider;
 @property (nonatomic, retain) IBOutlet NSSlider *volumeSlider;
+@property (nonatomic, retain) IBOutlet NSTableView *youtubeTableView;
 @property (nonatomic, retain) IBOutlet NSTextField *albumTitleTextField;
 @property (nonatomic, retain) IBOutlet NSTextField *artistNameTextField;
 @property (nonatomic, retain) IBOutlet NSTextField *tweetEditField;
 @property (nonatomic, retain) iTunesApplication *iTunes;
 @property (nonatomic, retain, readonly) NSNotificationCenter *notificationCenter;
 @property (nonatomic, retain, readonly) NowPlayingFriendsMacAppAppDelegate *appDelegate;
-
 
 
 - (IBAction)playerControlButtonClicked:(id)sender;
@@ -75,6 +78,7 @@
 - (IBAction)setPosition:(id)sender;
 - (IBAction)setShuffle:(id)sender;
 - (IBAction)setRepeat:(id)sender;
+- (IBAction)openYouTubeList:(id)sender;
 
 - (void)updateViewsWhenStateChange;
 - (void)updateShuffleSegmentControl;
