@@ -9,14 +9,14 @@
 #import "FriendsTableViewDelegate.h"
 
 #import "Util.h"
-#import "FriendCell.h"
 
 
 #define kFriendCellRowHeight 35.0f
 #define kFriendFieldWidth 311.0f
+#define kUserNameFieldHeight 20
+#define kUserProfileImageWidth 50
 
 @interface FriendsTableViewDelegate (Local)
-- (void)setImageCellAttributes;
 @end
 
 
@@ -51,7 +51,13 @@
  */
 - (void)awakeFromNib {
   [friendsTableView setRowHeight:kFriendCellRowHeight];
-  [self setImageCellAttributes];
+
+  NSTableColumn *tableColumn = [friendsTableView 
+				 tableColumnWithIdentifier:@"ProfileImageView"];
+  NSImageCell *imageCell = [[NSImageCell alloc] init];
+  [imageCell setImageScaling:NSImageScaleProportionallyUpOrDown];
+  [imageCell setImageAlignment:NSImageAlignTop];
+  [tableColumn setDataCell:imageCell];
 }
 
 #pragma mark
@@ -68,7 +74,6 @@
 
   self.tweets = [client getSearchTimeLine:songTitle, 
 			artistName, tags, nil];
-  //NSLog(@"tweets: %@", tweets);
 
   [friendsTableView reloadData];
 }
@@ -86,26 +91,33 @@
 /*
  * @brief テーブルの内容を返す。
  */
-- (id)tableView:(NSTableView *)aTableView
-    objectValueForTableColumn:(NSTableColumn *)aTableColumn
-    row:(NSInteger)rowIndex {
+- (id)tableView:(NSTableView *)tableView
+    objectValueForTableColumn:(NSTableColumn *)tableColumn
+    row:(NSInteger)row {
 
-  NSDictionary *tweet = [tweets objectAtIndex:rowIndex];
+  NSDictionary *tweet = [tweets objectAtIndex:row];
 
-  if ([[aTableColumn identifier] isEqualToString:@"TweetTextIdentifier"]) {  
-    FriendCell *cell = [[FriendCell alloc] initWithTweet:tweet];
-    [aTableColumn setDataCell:cell];
-
-    return cell;
-
-  } else if ([[aTableColumn identifier] isEqualToString:@"IconImageIdentifier"]) {
-    NSString *iconURLStr = [tweet objectForKey:@"profile_image_url"];
-    NSURL *iconURL = [[NSURL alloc] initWithString:iconURLStr];
-    NSImage *iconImage = [[NSImage alloc] initWithContentsOfURL:iconURL];
-    return iconImage;
+  if ([[tableColumn identifier] isEqualToString:@"TweetTextIdentifier"]) {
+    return [self tweetFieldTextBody:row];
+  } else {
+    NSURL *url = [[NSURL alloc] initWithString:
+				  [tweet objectForKey:@"profile_image_url"]];
+    NSImage *profileImage = [[NSImage alloc] initWithContentsOfURL:url];
+    return profileImage;
   }
 
   return @"";
+}
+
+- (NSString *)tweetFieldTextBody:(NSInteger)row {
+
+  NSDictionary *tweet = [tweets objectAtIndex:row];
+  NSString *passedTimeString = [Util passedTimeString:tweet];
+
+  return [[NSString alloc] initWithFormat:@"%@\n\n %@  by  %@",
+			   [tweet objectForKey:@"text"],
+			   passedTimeString,
+			   [tweet objectForKey:@"from_user"]];
 }
 
 /*
@@ -113,19 +125,18 @@
  */
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
 
-  NSDictionary *tweet = [tweets objectAtIndex:row];
-  NSString *tweetText = [tweet objectForKey:@"text"];
-
-  float tweetFieldWidth = kFriendFieldWidth - 
-    (kProfileImageSize + kProfileImageMargin * 2);
-
-  FriendCell *cell = [[FriendCell alloc] initWithTweet:tweet];
-  float tweetFieldHeight = [cell tweetFieldHeight:tweetText 
-				 width:tweetFieldWidth];
-
-  float height = tweetFieldHeight + kNamePlateHeight + 10.0f;
-  float imageHeight = kProfileImageSize + kProfileImageMargin * 2;
-  return (height <= imageHeight) ? imageHeight : height;
+  NSString *tweetTextBody = [self tweetFieldTextBody:row];
+  NSFont *font = [NSFont systemFontOfSize:12];
+  
+  float width = tableView.frame.size.width - kUserProfileImageWidth;
+  float height = [Util heightForString:tweetTextBody
+		       font:font width:width];
+  
+  if (height >= kUserProfileImageWidth) {
+    return height;
+  } else {
+    return kUserProfileImageWidth;
+  }
 }
 
 #pragma mark
@@ -134,20 +145,5 @@
 
 #pragma mark
 #pragma Local Methods
-
-/*
- * @brief ツイッタープロフィール画像セルの為の設定。
- */
-- (void)setImageCellAttributes {
-
-  NSTableColumn* imageColumn =
-    [friendsTableView tableColumnWithIdentifier:@"IconImageIdentifier"];
-
-  NSImageCell *imageCell = [[NSImageCell alloc] initImageCell:nil];
-  [imageCell setImageAlignment:NSImageAlignTopLeft];
-  [imageCell setImageScaling:NSImageScaleProportionallyUpOrDown];
-  [imageColumn setDataCell:imageCell];
-
-}
 
 @end

@@ -105,4 +105,48 @@
    usedRectForTextContainer:textContainer].size.height;
 }
 
+/**
+ * @brief Tweetデータからポストされた日付を返す。
+ */
++ (NSDate *)tweetDate:(NSDictionary *)data {
+
+  NSString *dateString = [data objectForKey:@"created_at"];
+  NSDate *date = [NSDate dateWithNaturalLanguageString:dateString];
+
+  return date;
+}
+
+/**
+ * @brief Tweetデータから現在までの経過時間を返す。
+ */
++ (NSInteger)secondSinceNow:(NSDictionary *)data {
+
+  NSDate *tweetDate = [Util tweetDate:data];
+  NSInteger intervalSec = abs([tweetDate timeIntervalSinceNow]);
+
+  return intervalSec;
+}
+
+
++ (NSString *)passedTimeString:(NSDictionary *)tweet {
+
+  NSInteger intervalSec = [Util secondSinceNow:tweet];
+  NSString *passedString = nil;
+
+  if (intervalSec < 60) {
+    passedString = [[NSString alloc] initWithFormat:@"%ds", intervalSec];
+  } else if (intervalSec >= 60 && intervalSec < (60 * 60)) {
+    passedString = [[NSString alloc] initWithFormat:@"%dm", (intervalSec / 60)];
+  } else if (intervalSec >= (60 * 60) && intervalSec < (60 * 60 * 24)) {
+    passedString = [[NSString alloc] initWithFormat:@"%dh", (intervalSec / (60 * 60))];
+  } else if (intervalSec >= (60 * 60 * 24) && 
+	     intervalSec < (60 * 60 * 24 * 30)){
+    passedString = [[NSString alloc] initWithFormat:@"%dd", (intervalSec / (60 * 60 * 24))];    
+  } else {
+    passedString = [[NSString alloc] initWithFormat:@"%dmo", (intervalSec / (60 * 60 * 24 * 30))];    
+
+  }
+
+  return passedString;
+}
 @end

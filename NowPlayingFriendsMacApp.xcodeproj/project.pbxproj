@@ -364,10 +364,10 @@
 				54C6E945138F3A520064D5F4 /* ImageGetter.m */,
 				54C6E947138F43FC0064D5F4 /* FriendsGetter.h */,
 				54C6E948138F43FC0064D5F4 /* FriendsGetter.m */,
-				54C6E94D138FE06D0064D5F4 /* FriendsTableViewDelegate.h */,
-				54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */,
 				54C6E9501392127F0064D5F4 /* AutoTweetController.h */,
 				54C6E951139212810064D5F4 /* AutoTweetController.m */,
+				54C6E94D138FE06D0064D5F4 /* FriendsTableViewDelegate.h */,
+				54C6E94E138FE06E0064D5F4 /* FriendsTableViewDelegate.m */,
 				54C6E953139246060064D5F4 /* FriendCell.h */,
 				54C6E954139246080064D5F4 /* FriendCell.m */,
 			);

@@ -20,7 +20,11 @@
 
 @implementation FriendCell
 
+@synthesize profileImageView;
+@synthesize nameField;
 @synthesize tweet;
+@synthesize tweetField;
+@synthesize imageGetter;
 
 - (void)dealloc {
   [super dealloc];
@@ -29,8 +33,21 @@
 - (id)initWithTweet:(NSDictionary *)aTweet {
 
   self = [super init];
-  if (self != nil) { tweet = aTweet; }
+  if (self != nil) { 
+    self.tweet = aTweet; 
+    imageGetter = [[ImageGetter alloc] init];
+  }
   return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+
+  FriendCell *newCell = [[FriendCell allocWithZone:zone] initWithTweet:tweet];
+  newCell.tweetField = nil;
+  newCell.nameField = nil;
+  newCell.profileImageView = nil;
+  newCell.imageGetter = nil;
+  return newCell;
 }
 
 /**
@@ -62,18 +79,22 @@
 - (void)setProfileImageForFrame:(NSRect)cellFrame inView:(NSView*)controlView {
 
   NSString *iconURL = [tweet objectForKey:@"profile_image_url"];
-  float x = cellFrame.origin.x;
-  float y = cellFrame.origin.y;
+  float x = cellFrame.origin.x + kProfileImageMargin;
+  float y = cellFrame.origin.y + kProfileImageMargin;
 
-  NSRect frame = NSMakeRect(x + kProfileImageMargin, 
-			    y + kProfileImageMargin,
-			    kProfileImageSize, 
-			    kProfileImageSize);
-
-  NSImageView *imageView = [[NSImageView alloc] initWithFrame:frame];
-  ImageGetter *getter = [[ImageGetter alloc] init];
-  [getter startDownloadingImage:iconURL toImageView:imageView];
-  [controlView addSubview:imageView];
+  if (profileImageView == nil) {
+    NSRect frame = NSMakeRect(x, y, kProfileImageSize, kProfileImageSize);
+    self.profileImageView = [[NSImageView alloc] initWithFrame:frame];
+    [controlView addSubview:profileImageView];
+  } else {
+    [profileImageView setFrameOrigin:NSMakePoint(x, y)];
+  }
+  
+  profileImageView.image = nil;
+  //[profileImageView display];
+  
+  [imageGetter cancelDownloading];
+  [imageGetter startDownloadingImage:iconURL toImageView:profileImageView];
 }
 
 /**
@@ -93,32 +114,38 @@
   float tweetFieldHeight = [self tweetFieldHeight:tweetText 
 				 width:tweetFieldWidth];
 
-  NSRect frame = NSMakeRect(x + imageSizeWithMargin,  y, 
-			    tweetFieldWidth, tweetFieldHeight);
-
-  NSTextField *tweetField = [[NSTextField alloc] 
-			      initWithFrame:frame];
-
-  tweetField.backgroundColor = [NSColor blackColor];
-  [tweetField setEditable:NO];
-  [tweetField setBordered:NO];
+  if (tweetField == nil) {
+    NSRect frame = NSMakeRect(x + imageSizeWithMargin,  y, 
+			      tweetFieldWidth, tweetFieldHeight);
+    self.tweetField = [[NSTextField alloc] initWithFrame:frame];
+    tweetField.backgroundColor = [NSColor blackColor];
+    [tweetField setEditable:NO];
+    [tweetField setBordered:NO];
+    [controlView addSubview:tweetField];
+  } else {
+    [tweetField setFrameOrigin:NSMakePoint(x + imageSizeWithMargin,  y)];
+    [tweetField setFrameSize:NSMakeSize(tweetFieldWidth, tweetFieldHeight)];
+  }
   [tweetField setStringValue:tweetText];
+  [tweetField display];
 
-  NSRect nameFieldFrame = NSMakeRect(x + imageSizeWithMargin, 
-				     y + tweetFieldHeight + 5.0f,
-				     tweetFieldWidth, 
-				     kNamePlateHeight);
 
-  NSTextField *nameField = [[NSTextField alloc] 
-			     initWithFrame:nameFieldFrame];
-
-  nameField.backgroundColor = [NSColor blackColor];
-  [nameField setEditable:NO];
-  [nameField setBordered:NO];
+  if (nameField == nil) {
+    NSRect nameFieldFrame = NSMakeRect(x + imageSizeWithMargin, 
+				       y + tweetFieldHeight + 5.0f,
+				       tweetFieldWidth, 
+				       kNamePlateHeight);
+    self.nameField = [[NSTextField alloc] initWithFrame:nameFieldFrame];
+    nameField.backgroundColor = [NSColor blackColor];
+    [nameField setEditable:NO];
+    [nameField setBordered:NO];
+    [controlView addSubview:nameField];
+  } else {
+    [nameField setFrameOrigin:NSMakePoint(x + imageSizeWithMargin, 
+					  y + tweetFieldHeight + 5.0f)];
+  }
   [nameField setStringValue:((tweet == nil) ? @"" : name)];
-
-  [controlView addSubview:tweetField];
-  [controlView addSubview:nameField];
+  [nameField display];
 }
 
 @end

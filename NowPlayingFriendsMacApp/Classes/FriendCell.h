@@ -14,13 +14,25 @@
 #define kProfileImageMargin 5.0f
 #define kNamePlateHeight 20.0f
 
+
+@class ImageGetter;
+
+
 @interface FriendCell : NSActionCell {
 @private
+  ImageGetter *imageGetter;
   NSDictionary *tweet;
+  NSImageView *profileImageView;
+  NSTextField *nameField;
+  NSTextField *tweetField;
 }
 
 
 @property (nonatomic, copy) NSDictionary *tweet;
+@property (nonatomic, retain) ImageGetter *imageGetter;
+@property (nonatomic, retain) NSImageView *profileImageView;
+@property (nonatomic, retain) NSTextField *nameField;
+@property (nonatomic, retain) NSTextField *tweetField;
 
 
 - (id)initWithTweet:(NSDictionary *)aTweet;

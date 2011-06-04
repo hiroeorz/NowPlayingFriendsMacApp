@@ -27,5 +27,8 @@
 		    font:(NSFont *)myFont
 		   width:(float)myWidth;
 
++ (NSDate *)tweetDate:(NSDictionary *)data;
++ (NSInteger)secondSinceNow:(NSDictionary *)data;
++ (NSString *)passedTimeString:(NSDictionary *)tweet;
 
 @end

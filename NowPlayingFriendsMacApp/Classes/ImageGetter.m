@@ -11,9 +11,10 @@
 
 @implementation ImageGetter
 
+@synthesize cancelFlag;
 @synthesize imageData;
-@synthesize url;
 @synthesize imageView;
+@synthesize url;
 
 - (id)init {
 
@@ -50,8 +51,19 @@
 #pragma mark -
 #pragma NSURLConnection Delegate Methods
 
+- (void)cancelDownloading {
+  
+  cancelFlag = YES;
+  self.imageData = nil;
+  [self cancel];
+}
+
 - (void)connection:(NSURLConnection *)connection
     didReceiveData:(NSData *) data {
+  if (cancelFlag) { 
+    [self cancel];
+    self.imageData = nil;
+  }
   [imageData appendData:data];
 }
 
