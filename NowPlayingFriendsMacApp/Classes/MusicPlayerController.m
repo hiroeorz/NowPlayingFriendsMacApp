@@ -9,6 +9,7 @@
 #import "MusicPlayerController.h"
 
 #import "../NowPlayingFriendsMacAppAppDelegate.h"
+#import "AutoTweetController.h"
 #import "MusicPlayerStateWatcher.h"
 #import "TwitterClient+NowPlaying.h"
 #import "TwitterClient.h"
@@ -38,6 +39,8 @@
 @synthesize artistNameTextField;
 @synthesize artworkImageView;
 @synthesize authWindow;
+@synthesize autoTweetController;
+@synthesize autoTweetSegmentedControl;
 @synthesize iTunes;
 @synthesize musicSegmentedControl;
 @synthesize notificationCenter;
@@ -48,8 +51,8 @@
 @synthesize tweetWindow;
 @synthesize volumeSlider;
 @synthesize watcher;
-@synthesize youtubeWindow;
 @synthesize youtubeTableView;
+@synthesize youtubeWindow;
 
 #pragma mark -
 #pragma Initializer
@@ -58,6 +61,7 @@
   self = [super init];
 
   if (self != nil) {
+    autoTweetController = nil;
     iTunes = [SBApplication 
 	       applicationWithBundleIdentifier:@"com.apple.iTunes"];
   }
@@ -98,7 +102,13 @@
 
   watcher = [[MusicPlayerStateWatcher alloc] init];
   [watcher performSelectorInBackground:@selector(startWatching:)
-	withObject:self];
+	   withObject:self];
+
+  if (autoTweetController == nil) {
+    self.autoTweetController = [[AutoTweetController alloc] 
+			    initWithSegmentedControl:autoTweetSegmentedControl];
+    [autoTweetController setNotification];
+  }
 }
 
 #pragma mark
@@ -334,7 +344,7 @@
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar 
      itemForItemIdentifier:(NSString *)itemIdentifier 
  willBeInsertedIntoToolbar:(BOOL)flag {
-
+  /*
   NSToolbarItem *toolbarItem = [[NSToolbarItem alloc] 
 				 initWithItemIdentifier:itemIdentifier];
  
@@ -349,9 +359,10 @@
   toolbarItem = nil;
  }
  return toolbarItem;
+  */
 }
 
-- (void)openTweetWindow:(id)sender {
+- (IBAction)openTweetWindow:(id)sender {
 
   TwitterClient *client = [[TwitterClient alloc] init];
   

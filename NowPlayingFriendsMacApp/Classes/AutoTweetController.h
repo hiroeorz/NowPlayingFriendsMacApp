@@ -15,8 +15,11 @@
 
 @interface AutoTweetController : NSObject {
 @private
-    
+  NSSegmentedControl *autoTweetSegmentedControl;
 }
+
+@property (nonatomic, retain) IBOutlet NSSegmentedControl *autoTweetSegmentedControl;
+
 
 - (void)setNotification;
 - (void)sendAutoTweetAfterTimelag;

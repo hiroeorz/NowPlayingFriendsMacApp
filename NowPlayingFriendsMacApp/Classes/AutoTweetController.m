@@ -23,11 +23,14 @@
 
 @implementation AutoTweetController
 
-- (id)init {
+@synthesize autoTweetSegmentedControl;
+
+- (id)initWithSegmentedControl:(NSSegmentedControl *)segmentedControl {
 
   self = [super init];
   
   if (self) {
+    self.autoTweetSegmentedControl = segmentedControl;
   }
   
   return self;
@@ -57,7 +60,7 @@
   
   NSLog(@"iTunes play state: %@", ([Util iTunesIsPlaying] ? @"YES" : @"NO"));
 
-  BOOL *autoTweetSetting = NO;
+  BOOL *autoTweetSetting = ([autoTweetSegmentedControl selectedSegment] == 0);
 
   if (!autoTweetSetting) { return; }
   if (![Util iTunesIsPlaying]) { return; }

@@ -21,6 +21,8 @@
 #define kSelectYouTubeTypeSelectFromList 1
 #define kSelectYouTubeTypeConfirmation 2
 
+
+@class AutoTweetController;
 @class iTunesApplication;
 @class NowPlayingFriendsMacAppAppDelegate;
 @class TwitterSendController;
@@ -29,6 +31,8 @@
 
 @interface MusicPlayerController : NSObject {
 @private
+  AutoTweetController *autoTweetController;
+  NSSegmentedControl *autoTweetSegmentedControl;
   MusicPlayerStateWatcher *watcher;
   NSButton *albumSelectButton;
   NSImageView *artworkImageView;
@@ -52,8 +56,10 @@
 @property (assign) IBOutlet NSWindow *tweetWindow;
 @property (assign) IBOutlet NSWindow *youtubeWindow;
 @property (nonatomic, retain)  MusicPlayerStateWatcher *watcher;
+@property (nonatomic, retain) AutoTweetController *autoTweetController;
 @property (nonatomic, retain) IBOutlet NSButton *albumSelectButton;
 @property (nonatomic, retain) IBOutlet NSImageView *artworkImageView;
+@property (nonatomic, retain) IBOutlet NSSegmentedControl *autoTweetSegmentedControl;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl *musicSegmentedControl;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl *repeatSegmentedControl;
 @property (nonatomic, retain) IBOutlet NSSegmentedControl *shuffleSegmentedControl;
@@ -79,6 +85,7 @@
 - (IBAction)setShuffle:(id)sender;
 - (IBAction)setRepeat:(id)sender;
 - (IBAction)openYouTubeList:(id)sender;
+- (IBAction)openTweetWindow:(id)sender;
 
 - (void)updateViewsWhenStateChange;
 - (void)updateShuffleSegmentControl;
