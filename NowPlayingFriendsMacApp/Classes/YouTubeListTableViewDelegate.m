@@ -6,6 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "iTunesStatuses.h"
+#import "Util.h"
+#import "YouTubeClient.h"
 #import "YouTubeListTableViewDelegate.h"
 
 #import "Util.h"
@@ -14,17 +17,29 @@
 #define kYouTubeCellRowHeight 80.0f
 
 
+@interface YouTubeListTableViewDelegate (Local)
+- (NSString *)movieFieldTextBody:(NSInteger)row;
+@end
+
+
 @implementation YouTubeListTableViewDelegate
 
 @synthesize youtubeList;
 @synthesize youtubeTableView;
 
-- (id)init
-{
+- (id)init {
+
     self = [super init];
     if (self) {
       youtubeList = nil;
       youtubeTableView = nil;
+
+      NSNotificationCenter *notificationCenter = 
+	[NSNotificationCenter defaultCenter];
+      
+      [notificationCenter addObserver:self 
+			  selector:@selector(refreshTableCallFromMainThread)
+			  name:kiTunesTrackChanged object:nil];
     }
     
     return self;
@@ -53,6 +68,28 @@
 }
 
 #pragma mark
+
+/*
+ * @brief YouTube動画を検索してrefreshTable:を呼び出す。
+ */
+- (void)refreshTableCallFromMainThread {
+
+  [self performSelectorOnMainThread:@selector(refreshTable)
+	withObject:nil waitUntilDone:NO];
+}
+
+- (void)refreshTable {
+
+  iTunesApplication *iTunes = [Util iTunes];
+  NSString *songTitle = [iTunes.currentTrack name];
+  NSString *artistName = [iTunes.currentTrack artist];
+
+  YouTubeClient *youTube = [[YouTubeClient alloc] init];
+
+  [youTube searchWithTitle:songTitle artist:artistName 
+	   delegate:self action:@selector(refreshTable:)
+	   count:20];
+}
 
 /*
  * @brief 引数として渡されたYouTube動画の検索結果でテーブルを再描画する。

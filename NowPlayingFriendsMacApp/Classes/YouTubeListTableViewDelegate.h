@@ -20,6 +20,8 @@
 @property (nonatomic, retain) IBOutlet NSTableView *youtubeTableView;
 @property (nonatomic, retain) NSArray *youtubeList;
 
+- (void)refreshTableCallFromMainThread;
 - (void)refreshTable;
+- (void)refreshTable:(NSArray *)searchResults;
 
 @end

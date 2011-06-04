@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		542AB93E139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png in Resources */ = {isa = PBXBuildFile; fileRef = 542AB93D139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png */; };
 		542AB941139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 542AB940139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m */; };
+		542AB943139A3AE700B5BCE2 /* refrectioned_icon_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 542AB942139A3AE700B5BCE2 /* refrectioned_icon_256.png */; };
 		54305E661388C21500873C0B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54305E651388C21500873C0B /* Cocoa.framework */; };
 		54305E701388C21500873C0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54305E6E1388C21500873C0B /* InfoPlist.strings */; };
 		54305E731388C21500873C0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 54305E721388C21500873C0B /* main.m */; };
@@ -82,6 +83,7 @@
 		542AB93D139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cherryblossom-you-tube1-webtreats.png"; sourceTree = "<group>"; };
 		542AB93F139A2B2B00B5BCE2 /* YouTubeListTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeListTableViewDelegate.h; sourceTree = "<group>"; };
 		542AB940139A2B2C00B5BCE2 /* YouTubeListTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeListTableViewDelegate.m; sourceTree = "<group>"; };
+		542AB942139A3AE700B5BCE2 /* refrectioned_icon_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refrectioned_icon_256.png; sourceTree = "<group>"; };
 		54305E611388C21500873C0B /* NowPlayingFriendsMacApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NowPlayingFriendsMacApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54305E651388C21500873C0B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		54305E681388C21500873C0B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -223,6 +225,7 @@
 		54305E561388C21500873C0B = {
 			isa = PBXGroup;
 			children = (
+				542AB942139A3AE700B5BCE2 /* refrectioned_icon_256.png */,
 				54305E6B1388C21500873C0B /* NowPlayingFriendsMacApp */,
 				54305E861388C21600873C0B /* NowPlayingFriendsMacAppTests */,
 				54305E641388C21500873C0B /* Frameworks */,
@@ -553,6 +556,7 @@
 				54C6E878138BC55E0064D5F4 /* twitter_newbird_white.png in Resources */,
 				54C6E87A138BC6360064D5F4 /* twitter_newbird_blue.png in Resources */,
 				542AB93E139A244100B5BCE2 /* cherryblossom-you-tube1-webtreats.png in Resources */,
+				542AB943139A3AE700B5BCE2 /* refrectioned_icon_256.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

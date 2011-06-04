@@ -68,12 +68,17 @@
 - (void)refreshTable {
   TwitterClient *client = [[TwitterClient alloc] init];
   iTunesTrack *currentTrack = [Util getCurrentTrack];
+
   NSString *songTitle = [currentTrack name];
   NSString *artistName = [currentTrack artist];
   NSString *tags = kNowPlayingTags;
 
-  self.tweets = [client getSearchTimeLine:songTitle, 
-			artistName, tags, nil];
+  if (songTitle != nil && ![songTitle isEqualToString:@""]) {
+    self.tweets = [client getSearchTimeLine:songTitle, 
+			  artistName, tags, nil];
+  } else {
+    self.tweets = nil;
+  }
 
   [friendsTableView reloadData];
 }
